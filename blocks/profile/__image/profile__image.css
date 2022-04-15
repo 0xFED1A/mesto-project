@@ -4,3 +4,11 @@
   object-fit: contain;
   object-position: center center;
 }
+
+/*
+@media screen and (max-width: 593px) {
+  .profile__image {
+    margin-top: 42px;
+  }
+}
+*/

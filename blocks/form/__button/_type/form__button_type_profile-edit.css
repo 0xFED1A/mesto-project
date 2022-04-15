@@ -25,3 +25,11 @@
     height: 18px;
   }
 }
+
+@media screen and (max-width: 593px) {
+  .form__button_type_profile-edit {
+    margin: 0 0 0 10px;
+
+    order: 2;
+  }
+}

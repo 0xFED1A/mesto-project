@@ -18,3 +18,11 @@
     line-height: 32px;
   }
 }
+
+@media screen and (max-width: 593px) {
+  .profile__user-name {
+    margin-left: 27px;
+
+    order: 1;
+  }
+}

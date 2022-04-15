@@ -3,3 +3,9 @@
 .main__profile {
   margin-top: 40px;
 }
+
+@media screen and (max-width: 593px) {
+  .main__profile {
+    margin-top: 42px;
+  }
+}
