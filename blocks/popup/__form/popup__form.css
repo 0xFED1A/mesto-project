@@ -1,0 +1,18 @@
+/* rules for popup__form element */
+
+.popup__form {
+  width: 430px;
+  height: 330px;
+
+  border-radius: 10px;
+
+  background-color: #fff;
+
+  position: relative;
+}
+
+@media screen and (max-width: 767px) {
+  .popup__form {
+    width: 282px;
+  }
+}

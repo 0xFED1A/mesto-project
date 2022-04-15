@@ -1,0 +1,18 @@
+/* rules for profile__user-description element */
+
+.profile__user-description {
+  margin: 16px 0 0 0;
+
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 400;
+}
+
+@media screen and (max-width: 767px) {
+  .profile__user-description {
+    margin: 14px 0 0 0;
+
+    font-size: 14px;
+    line-height: 17px;
+  }
+}

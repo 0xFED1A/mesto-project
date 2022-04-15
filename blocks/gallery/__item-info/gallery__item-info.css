@@ -1,0 +1,15 @@
+/* rules for gallery__item-info element */
+
+.gallery__item-info {
+  padding: 24px 20px 26px 21px;
+
+  background-color: #fff;
+
+  border-radius: 0 0 10px 10px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  box-sizing: border-box;
+}

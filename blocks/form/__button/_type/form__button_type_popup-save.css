@@ -1,0 +1,20 @@
+/* rules for form__button_type_popup-save modifier */
+
+.form__button_type_popup-save {
+  width: 358px;
+  height: 50px;
+
+  margin: 48px 0 37px 0;
+  padding: 14px 124px 14px 125px;
+
+  background-color: #000;
+  color: #fff;
+
+  box-sizing: border-box;
+
+  transition: opacity 0.15s ease;
+}
+
+.form__button_type_popup-save:hover {
+  opacity: 0.8;
+}
