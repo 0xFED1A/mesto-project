@@ -9,4 +9,4 @@
 - CSS
 - Git
 
-[Проект на Github Pages](https://0xfed1a.github.io/project-mesto/)
+[Проект на Github Pages](https://0xfed1a.github.io/mesto-project/)
