@@ -11,6 +11,40 @@
     <link rel="stylesheet" href="./pages/index.css">
   </head>
   <body class="page">
+    <div class="popup popup_closed page__popup">
+      <form class="form popup__form">
+        <h2 class="form__heading">Редактировать профиль</h2>
+        <fieldset class="form__input-group form__input-group_type_popup">
+          <input
+            class="form__input"
+            type="text" 
+            placeholder="Имя" 
+            value="Жак-Ив Кусто"
+            spellcheck="false"
+          >
+          <input 
+            class="form__input" 
+            type="text" 
+            placeholder="Описание" 
+            value="Исследователь океана"
+            spellcheck="false"
+          >
+          <button 
+            class="form__button form__button_type_popup-save"
+            type="submit"
+          >
+            Сохранить
+          </button>
+            <button
+              class="form__button form__button_type_popup-close 
+                form__button_visual_image"
+              type="button"
+            >
+              Закрыть форму редактирования
+            </button>
+        </fieldset>
+      </form>
+    </div>
     <header class="header page__header container container_place_header-footer">
       <img 
         class="header__logo"
