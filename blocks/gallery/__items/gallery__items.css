@@ -1,9 +1,0 @@
-/* rules for gallery__items element */
-
-.gallery__items {
-  margin: 0;
-  padding: 0;
-
-  list-style-type: none;
-  line-height: 0;
-}
