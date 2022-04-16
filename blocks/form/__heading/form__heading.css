@@ -11,3 +11,12 @@
 
   cursor: default;
 }
+
+@media screen and (max-width: 928px) {
+  .form__heading {
+    margin: 25px 0 0 22px;
+
+    font-size: 18px;
+    line-height: 22px;
+  }
+}

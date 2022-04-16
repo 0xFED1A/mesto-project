@@ -3,3 +3,9 @@
 .form__input-group_type_popup {
   margin: 48px 36px 0 36px;
 }
+
+@media screen and (max-width: 928px) {
+  .form__input-group_type_popup {
+    margin: 75px 22px 0 22px;
+  }
+}
