@@ -3,15 +3,3 @@
 .page__header {
   margin-top: 45px;
 }
-
-@media screen and (max-width: 768px) {
-  .page__header {
-    margin-top: 28px;
-  }
-}
-
-@media screen and (max-width: 593px) {
-  .page__header {
-    margin: 28px 0 0 0;
-  }
-}

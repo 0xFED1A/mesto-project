@@ -11,9 +11,3 @@
     height: 24.4px;
   }
 }
-
-@media screen and (max-width: 593px) {
-  .header__logo {
-    margin-left: 27px;
-  }
-}
