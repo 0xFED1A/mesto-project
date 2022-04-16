@@ -1,0 +1,18 @@
+/* rules for main__gallery element */
+
+.main__gallery {
+  margin-top: 50px;
+}
+
+@media screen and (min-width: 629px) and (max-width: 928px) {
+  .main__gallery {
+    /* property calculated as 75% of initial value */
+    margin-top: 37.5px;
+  }
+}
+
+@media screen and (max-width: 628px) {
+  .main__gallery {
+    margin-top: 36px;
+  }
+}
