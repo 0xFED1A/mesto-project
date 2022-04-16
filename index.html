@@ -18,6 +18,46 @@
         alt="Логотип Mesto"
       >
     </header>
+      <main class="main page__main container container_place_main">
+      <section class="profile main__profile">
+        <form class="form profile__form">
+          <picture class="profile__avatar">
+            <source
+              class="profile__src"
+              srcset="
+                ./images/avatar/1x/avatar_1x.png 1x,
+                ./images/avatar/2x/avatar_2x.png 2x,
+                ./images/avatar/3x/avatar_3x.png 3x
+              "
+              type="image/png"
+            >
+            <img
+              class="profile__image"
+              src="./images/avatar/1x/avatar_1x.png"
+              alt="Аватар пользователя"
+            >
+          </picture>
+          <div class="profile__info">
+            <h2 class="profile__user-name">Жак-Ив Кусто</h2>
+            <p class="profile__user-description">Исследователь океана</p>
+            <button
+              class="form__button form__button_visual_image
+                form__button_type_profile-edit"
+              type="button"
+            >
+              Редактировать профиль
+            </button>
+          </div>
+          <button
+            class="form__button form__button_visual_image
+              form__button_type_profile-add-img"
+            type="button"
+          >
+            Добавить фотографию
+          </button>
+        </form>
+      </section>
+    </main>
     <footer class="footer page__footer container container_place_header-footer">
       <p class="footer__copy">&copy; 2020 Mesto Russia</p>
     </footer>
