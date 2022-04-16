@@ -4,6 +4,14 @@
   margin-top: 40px;
 }
 
+@media screen and (max-width: 943px) {
+  .main__profile {
+    max-width: 581px;
+
+    margin: 40px auto 0 auto;
+  }
+}
+
 @media screen and (max-width: 618px) {
   .main__profile {
     margin-top: 42px;
