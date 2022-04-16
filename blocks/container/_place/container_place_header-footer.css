@@ -1,0 +1,21 @@
+/* rules for container_place_header-footer modifier */
+
+@media screen and (min-width: 629px) and (max-width: 928px) {
+  /* media query calculated:
+   * (282px * 3) + (17px * 2) + (24px * 2) = 928px
+   *   3x card    2x col.gap     2x mrg.
+   */
+  .container_place_header-footer {
+    margin: 0 24px;
+  }
+}
+
+@media screen and (max-width: 628px) {
+  /* media query calculated:
+   * (282px * 2) + 17px + (24px * 2) = 629px
+   *  2x card     1x col.gap  2x mrg.
+   */
+  .container_place_header-footer {
+    margin: 0 19px;
+  }
+}
