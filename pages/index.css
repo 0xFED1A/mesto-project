@@ -18,6 +18,7 @@
 @import url("../blocks/page/__footer/page__footer.css");
 
 /* import main */
+@import url("../blocks/gallery/gallery.css");
 @import url("../blocks/main/__gallery/main__gallery.css");
 @import url("../blocks/main/__profile/main__profile.css");
 
@@ -52,6 +53,7 @@
 @import url("../blocks/profile/__form/profile__form.css");
 
 /* import gallery */
+@import url("../blocks/gallery/__figure/gallery__figure.css");
 @import url("../blocks/gallery/__image/gallery__image.css");
 @import url("../blocks/gallery/__item-info/gallery__item-info.css");
 @import url("../blocks/gallery/__item-name/gallery__item-name.css");
