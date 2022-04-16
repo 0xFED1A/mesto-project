@@ -1,8 +1,6 @@
 /* rules for gallery__image element */
 
 .gallery__image {
-  width: 100%;
-
   border-radius: 10px 10px 0 0;
 
   object-fit: contain;

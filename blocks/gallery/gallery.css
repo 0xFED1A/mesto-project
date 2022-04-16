@@ -1,6 +1,4 @@
 /* rules for gallery block */
 
 .gallery {
-  display: flex;
-  justify-content: center;
 }
