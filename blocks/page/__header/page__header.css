@@ -1,0 +1,18 @@
+/* rules for page__header element */
+
+.page__header {
+  margin-top: 45px;
+}
+
+@media screen and (min-width: 629px) and (max-width: 928px) {
+  .page__header {
+    /* property calculated as 75% of initial value */
+    margin-top: 33.7px;
+  }
+}
+
+@media screen and (max-width: 628px) {
+  .page__header {
+    margin-top: 28px;
+  }
+}

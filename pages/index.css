@@ -6,12 +6,14 @@
 /* import fonts */
 @import url("../vendor/fonts/fonts.css");
 
-/* import page */
-@import url("../blocks/page/page.css");
-
 /* import container */
 @import url("../blocks/container/container.css");
 @import url("../blocks/container/_place/container_place_header-footer.css");
 @import url("../blocks/container/_place/container_place_main.css");
 @import url("../blocks/container/_type/container_type_flex.css");
 @import url("../blocks/container/_type/container_type_grid.css");
+
+/* import page */
+@import url("../blocks/page/page.css");
+@import url("../blocks/page/__header/page__header.css");
+@import url("../blocks/page/__footer/page__footer.css");
