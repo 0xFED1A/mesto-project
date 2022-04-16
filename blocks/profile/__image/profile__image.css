@@ -1,0 +1,6 @@
+/* rules for profile__image element */
+
+.profile__image {
+  object-fit: contain;
+  object-position: center center;
+}
