@@ -8,13 +8,13 @@
   row-gap: 20px;
 }
 
-@media screen and (max-width: 943px) {
+@media screen and (max-width: 928px) {
   .container_type_grid {
     grid-template-columns: repeat(2, 282px);
   }
 }
 
-@media screen and (max-width: 618px) {
+@media screen and (max-width: 628px) {
   .container_type_grid {
     grid-template-columns: 282px;
   }
