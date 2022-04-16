@@ -1,0 +1,8 @@
+/* rules for container_type_flex modifier */
+
+.container_type_flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
