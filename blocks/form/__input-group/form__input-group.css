@@ -1,0 +1,8 @@
+/* rules for form__input-group element */
+
+.form__input-group {
+  margin: 0;
+  padding: 0;
+
+  border: none;
+}

@@ -1,0 +1,9 @@
+/* rules for form__button_visual_image modifier */
+
+.form__button_visual_image {
+  font-size: 0;
+  line-height: 0;
+
+  background-color: transparent;
+  color: transparent;
+}
