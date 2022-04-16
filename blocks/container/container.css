@@ -1,7 +1,6 @@
 /* rules for container block */
 
 .container {
-  width: 100%;
   max-width: 880px;
 
   margin: 0 auto;
