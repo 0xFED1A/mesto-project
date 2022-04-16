@@ -4,7 +4,7 @@
   margin-top: 45px;
 }
 
-@media screen and (max-width: 944px) {
+@media screen and (max-width: 768px) {
   .page__header {
     margin-top: 28px;
   }

@@ -14,9 +14,9 @@
   opacity: 0.6;
 }
 
-@media screen and (max-width: 943px) {
+@media screen and (max-width: 767px) {
   .form__button_type_profile-add-img {
-    /* "add button" size for w:943 calculated 
+    /* "add button" size for w:767px calculated 
      * based on "edit button" size: 75% of initial
      */
     width: 112.5px;
