@@ -1,31 +1,16 @@
 /* rules for profile__user-description element */
 
 .profile__user-description {
-  max-width: 336px;
-
-  /* There is no chance to make
-   * a 100% pixel-perfect page using
-   * this margin from Figma!
-   */
-/*margin: 16px 0 0 0;*/
-  margin: 8px 0 0 0;
+  margin: 16px 0 0 0;
 
   font-size: 18px;
   line-height: 22px;
   font-weight: 400;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-
-  grid-column: 1 / span 2;
-
-  overflow: hidden;
 }
 
 @media screen and (max-width: 767px) {
   .profile__user-description {
-    max-width: 226px;
-
-  /*margin: 14px 0 0 0;*/
+    margin: 14px 0 0 0;
 
     font-size: 14px;
     line-height: 17px;
@@ -34,8 +19,6 @@
 
 @media screen and (max-width: 593px) {
   .profile__user-description {
-    max-width: 282px;
-
     text-align: center;
 
     order: 3;

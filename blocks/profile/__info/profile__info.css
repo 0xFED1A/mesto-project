@@ -7,11 +7,13 @@
 
   display: grid;
   grid-template-columns: repeat(2, max-content);
-  align-items: center;
+  grid-template-rows: repeat(2, 1fr);
+  align-items: end;
 }
 
 @media screen and (max-width: 593px) {
   .profile__info {
+    height: 54px; 
     max-width: 400px;
 
     margin: 26px auto 0 auto;

@@ -1,22 +1,18 @@
 /* rules for profile__user-name element */
 
 .profile__user-name {
-  max-width: 294px; 
+  height: 39px;
 
   margin: 0;
 
   font-size: 42px;
   line-height: 48px;
   font-weight: 500;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-
-  overflow: hidden;
 }
 
 @media screen and (max-width: 767px) {
   .profile__user-name {
-    max-width: 189px;
+    height: 26px;
 
     font-size: 27px;
     line-height: 32px;
@@ -26,11 +22,6 @@
 @media screen and (max-width: 593px) {
   .profile__user-name {
     margin-left: 27px;
-
-    /* This value is not taken from
-     * Figma, but adjusted to be pixel perfect
-     */
-    line-height: 27px;
 
     order: 1;
   }
