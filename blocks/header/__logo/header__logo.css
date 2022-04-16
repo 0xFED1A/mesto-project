@@ -1,0 +1,19 @@
+/* rules for header__logo element */
+
+.header__logo {
+  width: 142px;
+  height: 33px;
+}
+
+@media screen and (max-width: 928px) {
+  .header__logo {
+    width: 103.7px;
+    height: 24.4px;
+  }
+}
+
+@media screen and (max-width: 628px) {
+  .header__logo {
+    margin-left: 27px;
+  }
+}
