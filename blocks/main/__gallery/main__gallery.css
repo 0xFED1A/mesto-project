@@ -1,7 +1,13 @@
 /* rules for main__gallery element */
 
 .main__gallery {
+  /* Value taken from Figma gives not 100% pixel-perfect
+   * result, custom value used instead
+   */
+  /*
   margin-top: 50px;
+  */
+  margin-top: 46px;
 }
 
 @media screen and (min-width: 629px) and (max-width: 928px) {
@@ -13,6 +19,12 @@
 
 @media screen and (max-width: 628px) {
   .main__gallery {
+    /* Value taken from Figma gives not 100% pixel-perfect
+    * result, custom value used instead
+    */
+    /*
     margin-top: 36px;
+    */
+    margin-top: 34px;
   }
 }
