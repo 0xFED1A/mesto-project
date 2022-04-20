@@ -1,8 +1,14 @@
 /* rules for form__input-group element */
 
 .form__input-group {
-  margin: 0;
+  margin: 48px 36px 0 36px;
   padding: 0;
 
   border: none;
+}
+
+@media screen and (max-width: 928px) {
+  .form__input-group {
+    margin: 75px 22px 0 22px;
+  }
 }

@@ -1,6 +1,0 @@
-/* rules for form__input-group_type_profile modifier */
-
-.form__input-group_type_profile {
-  display: flex;
-  justify-content: space-between;
-}
