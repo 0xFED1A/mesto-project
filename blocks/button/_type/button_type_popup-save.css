@@ -1,6 +1,6 @@
-/* rules for form__button_type_popup-save modifier */
+/* rules for button_type_popup-save modifier */
 
-.form__button_type_popup-save {
+.button_type_popup-save {
   width: 358px;
   height: 50px;
 
@@ -18,12 +18,12 @@
   transition: opacity 0.15s ease;
 }
 
-.form__button_type_popup-save:hover {
+.button_type_popup-save:hover {
   opacity: 0.8;
 }
 
 @media screen and (max-width: 928px) {
-  .form__button_type_popup-save {
+  .button_type_popup-save {
     width: 238px; 
     height: 46px;
     

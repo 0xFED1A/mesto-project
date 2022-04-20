@@ -1,6 +1,6 @@
-/* rules for form__button_type_profile-edit modifier */
+/* rules for button_type_profile-edit modifier */
 
-.form__button_type_profile-edit {
+.button_type_profile-edit {
   width: 24px;
   height: 24px;
 
@@ -15,19 +15,19 @@
   grid-row: 1;
 }
 
-.form__button_type_profile-edit:hover {
+.button_type_profile-edit:hover {
   opacity: 0.6;
 }
 
 @media screen and (max-width: 928px) {
-  .form__button_type_profile-edit {
+  .button_type_profile-edit {
     width: 18px;
     height: 18px;
   }
 }
 
 @media screen and (max-width: 628px) {
-  .form__button_type_profile-edit {
+  .button_type_profile-edit {
     margin: 0 0 0 10px;
 
     order: 2;

@@ -1,6 +1,6 @@
-/* rules for form__button_type_popup-close modifier */
+/* rules for button_type_popup-close modifier */
 
-.form__button_type_popup-close {
+.button_type_popup-close {
   width: 32px;
   height: 32px;
 
@@ -14,12 +14,12 @@
   right: -39px;
 }
 
-.form__button_type_popup-close:hover {
+.button_type_popup-close:hover {
   opacity: 0.6;
 }
 
 @media screen and (max-width: 928px) {
-  .form__button_type_popup-close {
+  .button_type_popup-close {
     width: 20px;
     height: 20px;
 

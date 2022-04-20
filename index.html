@@ -11,7 +11,13 @@
     <link rel="stylesheet" href="./pages/index.css">
   </head>
   <body class="page">
-    <div class="popup page__popup">
+    <div class="popup page__popup popup_opened">
+      <button
+          class="button button_type_popup-close button_visual_image"
+          type="button"
+          >
+          Закрыть форму редактирования
+      </button>
       <form class="form popup__form">
         <h2 class="form__heading">Редактировать профиль</h2>
         <fieldset class="form__input-group form__input-group_type_popup">
@@ -32,18 +38,11 @@
             spellcheck="false"
           >
           <button 
-            class="form__button form__button_type_popup-save"
+            class="button button_type_popup-save"
             type="submit"
           >
             Сохранить
           </button>
-            <button
-              class="form__button form__button_type_popup-close 
-                form__button_visual_image"
-              type="button"
-            >
-              Закрыть форму редактирования
-            </button>
         </fieldset>
       </form>
     </div>
@@ -77,16 +76,14 @@
             <h2 class="profile__user-name">Жак-Ив Кусто</h2>
             <p class="profile__user-description">Исследователь океана</p>
             <button
-              class="form__button form__button_visual_image
-                form__button_type_profile-edit"
+              class="button button_visual_image button_type_profile-edit"
               type="button"
             >
               Редактировать профиль
             </button>
           </div>
           <button
-            class="form__button form__button_visual_image
-              form__button_type_profile-add-img"
+            class="button button_visual_image button_type_profile-add-img"
             type="button"
           >
             Добавить фотографию
@@ -117,8 +114,7 @@
                 <p class="gallery__item-name">Карачаевск</p>
                 <form class="form gallery__form">
                   <button
-                    class="form__button form__button_type_gallery-like
-                      form__button_visual_image" 
+                    class="button button_type_gallery-like button_visual_image"
                     type="button"
                   >
                     Поставить лайк!
@@ -149,8 +145,7 @@
                 <p class="gallery__item-name">Гора Эльбрус</p>
                 <form class="form gallery__form">
                   <button
-                    class="form__button form__button_type_gallery-like
-                      form__button_visual_image" 
+                    class="button button_type_gallery-like button_visual_image"
                     type="button"
                   >
                     Поставить лайк!
@@ -181,8 +176,7 @@
                 <p class="gallery__item-name">Домбай</p>
                 <form class="form gallery__form">
                   <button
-                    class="form__button form__button_type_gallery-like
-                      form__button_visual_image" 
+                    class="button button_type_gallery-like button_visual_image"
                     type="button"
                   >
                     Поставить лайк!
@@ -213,8 +207,7 @@
                 <p class="gallery__item-name">Гора Эльбрус</p>
                 <form class="form gallery__form">
                   <button
-                    class="form__button form__button_type_gallery-like
-                      form__button_visual_image" 
+                    class="button button_type_gallery-like button_visual_image"
                     type="button"
                   >
                     Поставить лайк!
@@ -245,8 +238,7 @@
                 <p class="gallery__item-name">Домбай</p>
                 <form class="form gallery__form">
                   <button
-                    class="form__button form__button_type_gallery-like
-                      form__button_visual_image" 
+                    class="button button_type_gallery-like button_visual_image"
                     type="button"
                   >
                     Поставить лайк!
@@ -277,8 +269,7 @@
                 <p class="gallery__item-name">Карачаево-Черкесия</p>
                 <form class="form gallery__form">
                   <button
-                    class="form__button form__button_type_gallery-like
-                      form__button_visual_image" 
+                    class="button button_type_gallery-like button_visual_image"
                     type="button"
                   >
                     Поставить лайк!
