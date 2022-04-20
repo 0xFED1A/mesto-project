@@ -5,7 +5,7 @@
   height: 50px;
 
   background: center center / contain
-    url("../../../../images/buttons/add/buttons_add.svg") no-repeat;
+    url("../../../images/buttons/add/buttons_add.svg") no-repeat;
 
   transition: opacity 0.15s ease;
 }
@@ -32,6 +32,6 @@
     margin-top: 36px;
 
     background: center center / contain
-      url("../../../../images/buttons/add/buttons_add_wide.svg") no-repeat;
+      url("../../../images/buttons/add/buttons_add_wide.svg") no-repeat;
   }
 }

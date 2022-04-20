@@ -5,7 +5,7 @@
   height: 32px;
 
   background: top left / cover
-    url("../../../../images/buttons/close/buttons_close.svg");
+    url("../../../images/buttons/close/buttons_close.svg");
 
   transition: opacity 0.15s ease;
 

@@ -7,7 +7,7 @@
   margin: 0 0 0 18px;
 
   background: center center / contain
-    url("../../../../images/buttons/edit/buttons_edit.svg");
+    url("../../../images/buttons/edit/buttons_edit.svg");
 
   transition: opacity 0.15s ease;
 
