@@ -1,0 +1,7 @@
+/* rules for popup__container element */
+
+.popup__container {
+  display: flex; 
+
+  position: relative;
+}

@@ -12,39 +12,41 @@
   </head>
   <body class="page">
     <div class="popup page__popup popup_opened">
-      <button
+      <div class="popup__container">
+        <button
           class="button button_type_popup-close button_visual_image"
           type="button"
-          >
+        >
           Закрыть форму редактирования
-      </button>
-      <form class="form popup__form">
-        <h2 class="form__heading">Редактировать профиль</h2>
-        <fieldset class="form__input-group form__input-group_type_popup">
-          <input
-            class="form__input"
-            name = "user_name"
-            type="text" 
-            placeholder="Имя" 
-            value="Жак-Ив Кусто"
-            spellcheck="false"
-          >
-          <input 
-            class="form__input"
-            name="user_description"
-            type="text" 
-            placeholder="Описание" 
-            value="Исследователь океана"
-            spellcheck="false"
-          >
-          <button 
-            class="button button_type_popup-save"
-            type="submit"
-          >
-            Сохранить
-          </button>
-        </fieldset>
-      </form>
+        </button>
+        <form class="form popup__form">
+          <h2 class="form__heading">Редактировать профиль</h2>
+          <fieldset class="form__input-group form__input-group_type_popup">
+            <input
+              class="form__input"
+              name = "user_name"
+              type="text"
+              placeholder="Имя"
+              value="Жак-Ив Кусто"
+              spellcheck="false"
+            >
+            <input
+              class="form__input"
+              name="user_description"
+              type="text"
+              placeholder="Описание"
+              value="Исследователь океана"
+              spellcheck="false"
+            >
+            <button
+              class="button button_type_popup-save"
+              type="submit"
+            >
+              Сохранить
+            </button>
+          </fieldset>
+        </form>
+      </div>
     </div>
     <header class="header page__header container container_place_header-footer">
       <img 
