@@ -1,6 +1,6 @@
-/* rules for profile__form element */
+/* rules for profile__user-data-container element */
 
-.profile__form {
+.profile__user-data-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -8,7 +8,7 @@
 }
 
 @media screen and (max-width: 628px) {
-  .profile__form {
+  .profile__user-data-container {
     flex-direction: column;
   }
 }
