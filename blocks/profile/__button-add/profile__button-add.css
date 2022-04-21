@@ -1,6 +1,6 @@
-/* rules for button_type_profile-add-img modifier */
+/* rules for profile__button-add element */
 
-.button_type_profile-add-img {
+.profile__button-add {
   width: 150px;
   height: 50px;
 
@@ -10,12 +10,12 @@
   transition: opacity 0.15s ease;
 }
 
-.button_type_profile-add-img:hover {
+.profile__button-add:hover {
   opacity: 0.6;
 }
 
 @media screen and (max-width: 928px) {
-  .button_type_profile-add-img {
+  .profile__button-add {
     /* "add button" size for w:943 calculated 
      * based on "edit button" size: 75% of initial
      */
@@ -25,7 +25,7 @@
 }
 
 @media screen and (max-width: 628px) {
-  .button_type_profile-add-img {
+  .profile__button-add {
     width: 282px;
     height: 50px;
 

@@ -1,6 +1,6 @@
-/* rules for button_type_gallery-like modifier */
+/* rules for gallery__button-like element */
 
-.button_type_gallery-like {
+.gallery__button-like {
   width: 22px;
   height: 19px;
 
@@ -10,11 +10,11 @@
   transition: opacity 0.15s ease, background-image 0.15s ease;
 }
 
-.button_type_gallery-like:hover {
+.gallery__button-like:hover {
   opacity: 0.5;
 }
 
-.button_type_gallery-like:active {
+.gallery__button-like:active {
   background-image: url("../../../images/buttons/like/buttons_like_active.svg");
 
   opacity: 1;
