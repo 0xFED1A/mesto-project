@@ -5,6 +5,7 @@ const page = document.querySelector(".page");
 const profile = page.querySelector(".profile");
 const userName = profile.querySelector(".profile__user-name");
 const userInfo = profile.querySelector(".profile__user-description");
+const gallery = page.querySelector(".gallery__items");
 
 // profile popup
 const profilePopupElement = page.querySelector("#popup_profile_edit");
@@ -156,4 +157,8 @@ function initializePopupSubmit(popupObject) {
       });
       break;
   }
+  return;
 }
+
+// place functions
+const places = [];
