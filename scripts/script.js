@@ -18,6 +18,18 @@ const profilePopup = {
   save: profilePopupElement.querySelector(".popup__button-save")
 };
 
+// place popup
+const placePopupElement = page.querySelector("#popup_img_add");
+const placePopup = {
+  popup: placePopupElement,
+  open: profile.querySelector(".profile__button-add"),
+  close: placePopupElement.querySelector(".popup__button-close"),
+  form: placePopupElement.querySelector(".popup__form"),
+  placeName: placePopupElement.querySelectorAll(".form__input")[0],
+  placeLink: placePopupElement.querySelectorAll(".form__input")[1],
+  upload: placePopupElement.querySelector(".popup__button-save")
+};
+
 function getPopupType(popupObject) {
   const popupTypes = ["add", "edit", "preview"];
   return popupTypes.find(popupType => popupObject.popup.id.includes(popupType));
