@@ -246,3 +246,13 @@ function initializePlaceRemove(placeObject) {
   });
   return;
 }
+
+/**
+ * function inserts intitalized place element in document. It also stores
+ * intialized object in array to keep track of this objects
+ * @param {object} placeObject - object to initialize
+ */
+function insertPlace(placeObject) {
+  places.push(placeObject);
+  gallery.prepend(places[places.length - 1].element);
+}
