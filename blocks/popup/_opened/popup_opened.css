@@ -1,5 +1,6 @@
 /* rules for popup_opened modifier */
 
 .popup_opened {
-  display: flex;
+  opacity: 1;
+  visibility: visible;
 }
