@@ -30,6 +30,15 @@ const placePopup = {
   upload: placePopupElement.querySelector(".popup__button-save")
 };
 
+// preview popup
+const previewPopupElement = page.querySelector("#popup_img_preview");
+const previewPopup = {
+  popup: previewPopupElement,
+  close: previewPopupElement.querySelector(".popup__button-close"),
+  image: previewPopupElement.querySelector(".popup__image"),
+  caption: previewPopupElement.querySelector(".popup__item-info")
+};
+
 function getPopupType(popupObject) {
   const popupTypes = ["add", "edit", "preview"];
   return popupTypes.find(popupType => popupObject.popup.id.includes(popupType));
