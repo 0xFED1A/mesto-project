@@ -131,3 +131,29 @@ function initializePopupInputs(popupObject) {
   }
   return;
 }
+
+/**
+ * Function initializes popup submit element. It attaches event listener to
+ * submit button and prevents default behaviour. It also saves input values
+ * @param {object} popupObject - object for intitalization
+ */
+function initializePopupSubmit(popupObject) {
+  const popupType = getPopupType(popupObject);
+  switch (popupType) {
+    case "edit":
+      popupObject.save.addEventListener("click", event => {
+        event.preventDefault();
+        userName.textContent = popupObject.userName.value;
+        userInfo.textContent = popupObject.userInfo.value;
+        popupObject.popup.classList.remove("popup_opened");
+      });
+      break;
+    case "add":
+      popupObject.upload.addEventListener("click", event => {
+        event.preventDefault();
+        //TODO:
+        popupObject.popup.classList.remove("popup_opened");
+      });
+      break;
+  }
+}
