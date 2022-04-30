@@ -11,6 +11,32 @@
     <link rel="stylesheet" href="./pages/index.css">
   </head>
   <body class="page">
+    <div
+      class="popup page__popup popup_type_img-preview"
+      id="popup_img_preview"
+    >
+      <div class="popup__container">
+        <button
+          class="button popup__button-close button_visual_image"
+          type="button"
+        >
+          Закрыть форму просмотра изображения
+        </button>
+        <figure class="popup__figure">
+          <picture class="popup__picture">
+            <!-- attributes will be populated from script -->
+            <img
+              class="popup__image"
+              src=""
+              alt=""
+            >
+          </picture>
+          <!-- text content will be popuplate from script -->
+          <figcaption class="popup__item-info">
+          </figcaption>
+        </figure>
+      </div>
+    </div>
     <div class="popup page__popup">
       <div class="popup__container">
         <button
