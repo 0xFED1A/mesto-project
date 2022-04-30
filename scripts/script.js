@@ -219,3 +219,15 @@ function initializePlaceCaption(placeObject, placeName) {
   return;
 }
 
+
+/**
+ * function initializes like button in place object
+ * @param {object} placeObject - obect to initialize
+ */
+function initializePlaceLike(placeObject) {
+  placeObject.like = placeObject.element.querySelector(".gallery__button-like");
+  placeObject.like.addEventListener("click", () => {
+    placeObject.like.classList.toggle("gallery__button-like_active");
+  });
+  return;
+}
