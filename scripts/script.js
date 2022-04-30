@@ -205,3 +205,17 @@ function initializePlaceImage(placeObject, placeName, placeLink) {
   });
   return;
 }
+
+/**
+ * function intialize text of place object
+ * @param {object} placeObject - obect to initialize
+ * @param {string} placeName - string which will be used to initialize caption
+ * text
+ */
+function initializePlaceCaption(placeObject, placeName) {
+  placeObject.caption =
+    placeObject.element.querySelector(".gallery__item-name");
+  placeObject.caption.textContent = placeName;
+  return;
+}
+
