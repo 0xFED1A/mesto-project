@@ -43,6 +43,18 @@ const previewPopup = {
 const popups = [profilePopup, placePopup, previewPopup];
 
 // popup functions
+/**
+ * function runs full cycle of popup intitalization
+ * @param {object} popupObject - object for intitalization
+ */
+function initializePopup(popupObject) {
+  initializePopupOpen(popupObject);
+  initializePopupClose(popupObject);
+  initializePopupForm(popupObject);
+  initializePopupInputs(popupObject);
+  initializePopupSubmit(popupObject);
+  return;
+}
 
 /**
  * function return one of three available popup object types
