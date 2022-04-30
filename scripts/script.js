@@ -114,7 +114,7 @@ function initializePopupForm(popupObject) {
 }
 
 /**
- * Function initializes popup inputs. It sets itput values to required
+ * function initializes popup inputs. It sets itput values to required
  * data, or clears inputs
  * @param {object} popupObject - object for intitalization
  */
@@ -134,7 +134,7 @@ function initializePopupInputs(popupObject) {
 }
 
 /**
- * Function initializes popup submit element. It attaches event listener to
+ * function initializes popup submit element. It attaches event listener to
  * submit button and prevents default behaviour. It also saves input values
  * @param {object} popupObject - object for intitalization
  */
@@ -164,7 +164,7 @@ function initializePopupSubmit(popupObject) {
 const places = [];
 
 /**
- * Function creates empty place object. This object is a template of place card.
+ * function creates empty place object. This object is a template of place card.
  * Ugly hack with "static variable" included
  * @returns {object} - new place object
  */
@@ -186,4 +186,22 @@ function createPlace() {
     remove: null
   };
   return newPlaceObject;
+}
+
+/**
+ * function intializes image of places object
+ * @param {object} placeObject - obect to initialize
+ * @param {string} placeName - string which will be used to initialize image
+ * alt attribute
+ * @param {string} placeLink - string which will be used to initialize image
+ * src attribute
+ */
+function initializePlaceImage(placeObject, placeName, placeLink) {
+  placeObject.image = placeObject.element.querySelector(".gallery__image");
+  placeObject.image.src = placeLink;
+  placeObject.image.alt = placeName;
+  placeObject.image.addEventListener("click", () => {
+    initializePopupOpen(previewPopup, [placeName, placeLink]);
+  });
+  return;
 }
