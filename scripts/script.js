@@ -162,3 +162,28 @@ function initializePopupSubmit(popupObject) {
 
 // place functions
 const places = [];
+
+/**
+ * Function creates empty place object. This object is a template of place card.
+ * Ugly hack with "static variable" included
+ * @returns {object} - new place object
+ */
+function createPlace() {
+  const placeElementTemplate = page.querySelector("#gallery_template").content;
+  const newPlaceElement =
+    placeElementTemplate.querySelector(".gallery__item").cloneNode(true);
+
+  // trying to mimic function static variable
+  createPlace.idCounter = typeof createPlace.idCounter === "undefined" ?
+    0 : ++createPlace.idCounter;
+
+  const newPlaceObject = {
+    element: newPlaceElement,
+    uniqueId: createPlace.idCounter,
+    image: null,
+    caption: null,
+    like: null,
+    remove: null
+  };
+  return newPlaceObject;
+}
