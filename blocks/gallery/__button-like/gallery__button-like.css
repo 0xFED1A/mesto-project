@@ -13,9 +13,3 @@
 .gallery__button-like:hover {
   opacity: 0.5;
 }
-
-.gallery__button-like:active {
-  background-image: url("../../../images/buttons/like/buttons_like_active.svg");
-
-  opacity: 1;
-}
