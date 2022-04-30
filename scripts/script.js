@@ -152,7 +152,11 @@ function initializePopupSubmit(popupObject) {
     case "add":
       popupObject.upload.addEventListener("click", event => {
         event.preventDefault();
-        //TODO:
+        const newPlace = createPlace();
+        initializePlace(
+          newPlace, popupObject.placeName.value, popupObject.placeLink.value
+        );
+        insertPlace(newPlace);
         popupObject.popup.classList.remove("popup_opened");
       });
       break;
@@ -186,6 +190,21 @@ function createPlace() {
     remove: null
   };
   return newPlaceObject;
+}
+
+/** function runs full cycle of place intialization
+ * @param {object} placeObject - object to initialize
+ * @param {string} placeName - string which will be used to initialize image
+ * and caption
+ * @param {string} placeLink - string which will be used to initialize image
+ * @returns {object} - fully initialized place object
+ */
+function initializePlace(placeObject, placeName, placeLink) {
+  initializePlaceImage(placeObject, placeName, placeLink);
+  initializePlaceCaption(placeObject, placeName, placeLink);
+  initializePlaceLike(placeObject);
+  initializePlaceRemove(placeObject);
+  return placeObject;
 }
 
 /**
@@ -255,4 +274,5 @@ function initializePlaceRemove(placeObject) {
 function insertPlace(placeObject) {
   places.push(placeObject);
   gallery.prepend(places[places.length - 1].element);
+  return;
 }
