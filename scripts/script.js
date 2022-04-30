@@ -39,7 +39,48 @@ const previewPopup = {
   caption: previewPopupElement.querySelector(".popup__item-info")
 };
 
+const popups = [profilePopup, placePopup, previewPopup];
+
+// popup functions
+
+/**
+ * Function return one of three available popup object types
+ * @param {object} popupObject - popup object to get type
+ * @returns {string} - type of popup object
+ */
 function getPopupType(popupObject) {
   const popupTypes = ["add", "edit", "preview"];
   return popupTypes.find(popupType => popupObject.popup.id.includes(popupType));
+}
+
+/**
+ * Function intitalizes popup open property: attaches event listeners
+ * on open element if needed and calls popup input initialization if needed
+ * @param {object} popupObject - object for initialization
+ * @param {array} previewPopupData - array of data required for preview popup
+ * initialization
+ */
+function initializePopupOpen(popupObject, previewPopupData = null) {
+  const popupType = getPopupType(popupObject);
+  switch (popupType) {
+    case "add":
+    case "edit":
+      popupObject.open.addEventListener("click", () => {
+        initializePopupInputs(popupObject);
+        popupObject.popup.classList.add("popup_opened");
+      });
+      break;
+    case "preview":
+      if (previewPopupData) {
+        popupObject.caption.textContent = previewPopupData[0];
+        popupObject.image.alt = previewPopupData[0];
+        popupObject.image.src = previewPopupData[1];
+        popupObject.popup.classList.add("popup_opened");
+      }
+      break;
+  }
+}
+
+function initializePopupInputs(popupObject) {
+
 }
