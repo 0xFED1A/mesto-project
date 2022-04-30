@@ -95,6 +95,24 @@ function initializePopupClose(popupObject) {
 }
 
 /**
+ * function initialize popup form element: it attaches evenet listener to it,
+ * and prevent form from default behaviour
+ * @param {object} popupObject - object for initialization
+ */
+function initializePopupForm(popupObject) {
+  const popupType = getPopupType(popupObject);
+  switch (popupType) {
+    case "add":
+    case "edit":
+      popupObject.form.addEventListener("submit", event => {
+        event.preventDefault();
+      });
+      break;
+  }
+  return;
+}
+
+/**
  * Function initializes popup inputs. It sets itput values to required
  * data, or clears inputs
  * @param {object} popupObject - object for intitalization
