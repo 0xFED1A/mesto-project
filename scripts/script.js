@@ -17,3 +17,8 @@ const profilePopup = {
   userInfo: profilePopupElement.querySelectorAll(".form__input")[1],
   save: profilePopupElement.querySelector(".popup__button-save")
 };
+
+function getPopupType(popupObject) {
+  const popupTypes = ["add", "edit", "preview"];
+  return popupTypes.find(popupType => popupObject.popup.id.includes(popupType));
+}
