@@ -74,6 +74,43 @@
         </form>
       </div>
     </div>
+    <div class="popup page__popup" id="popup_img_add">
+      <div class="popup__container">
+        <button
+          class="button popup__button-close button_visual_image"
+          type="button"
+        >
+          Закрыть форму добавления изображения
+        </button>
+        <form class="form popup__form" name="user_info">
+          <h2 class="form__heading">Новое место</h2>
+          <fieldset class="form__input-group">
+            <input
+              class="form__input"
+              name = "place_name"
+              type="text"
+              placeholder="Название"
+              value=""
+              spellcheck="false"
+            >
+            <input
+              class="form__input"
+              name="place_link"
+              type="text"
+              placeholder="Ссылка на картинку"
+              value=""
+              spellcheck="false"
+            >
+            <button
+              class="button popup__button-save"
+              type="submit"
+            >
+              Создать
+            </button>
+          </fieldset>
+        </form>
+      </div>
+    </div>
     <header class="header page__header container container_place_header-footer">
       <img 
         class="header__logo"
