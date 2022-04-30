@@ -44,7 +44,7 @@ const popups = [profilePopup, placePopup, previewPopup];
 // popup functions
 
 /**
- * Function return one of three available popup object types
+ * function return one of three available popup object types
  * @param {object} popupObject - popup object to get type
  * @returns {string} - type of popup object
  */
@@ -54,7 +54,7 @@ function getPopupType(popupObject) {
 }
 
 /**
- * Function intitalizes popup open property: attaches event listeners
+ * function intitalizes popup open property: attaches event listeners
  * on open element if needed and calls popup input initialization if needed
  * @param {object} popupObject - object for initialization
  * @param {array} previewPopupData - array of data required for preview popup
@@ -79,6 +79,18 @@ function initializePopupOpen(popupObject, previewPopupData = null) {
       }
       break;
   }
+  return;
+}
+
+/**
+ * function initializes popup close element: it adds event listener on close
+ * button
+ * @param {object} popupObject - object for intitalization
+ */
+function initializePopupClose(popupObject) {
+  popupObject.close.addEventListener("click", () => {
+    popupObject.popup.classList.remove("popup_opened");
+  });
   return;
 }
 
