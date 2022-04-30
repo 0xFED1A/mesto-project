@@ -190,7 +190,7 @@ function createPlace() {
 
 /**
  * function intializes image of places object
- * @param {object} placeObject - obect to initialize
+ * @param {object} placeObject - object to initialize
  * @param {string} placeName - string which will be used to initialize image
  * alt attribute
  * @param {string} placeLink - string which will be used to initialize image
@@ -208,7 +208,7 @@ function initializePlaceImage(placeObject, placeName, placeLink) {
 
 /**
  * function intialize text of place object
- * @param {object} placeObject - obect to initialize
+ * @param {object} placeObject - object to initialize
  * @param {string} placeName - string which will be used to initialize caption
  * text
  */
@@ -219,15 +219,30 @@ function initializePlaceCaption(placeObject, placeName) {
   return;
 }
 
-
 /**
  * function initializes like button in place object
- * @param {object} placeObject - obect to initialize
+ * @param {object} placeObject - object to initialize
  */
 function initializePlaceLike(placeObject) {
   placeObject.like = placeObject.element.querySelector(".gallery__button-like");
   placeObject.like.addEventListener("click", () => {
     placeObject.like.classList.toggle("gallery__button-like_active");
+  });
+  return;
+}
+
+/**
+ * function intitalizes remove buttoin in place object
+ * @param {object} placeObject - object to initialize
+ */
+function initializePlaceRemove(placeObject) {
+  placeObject.remove =
+    placeObject.element.querySelector(".gallery__button-delete");
+  placeObject.remove.addEventListener("click", () => {
+    const placeToRemoveIndex =
+      places.findIndex(place => place.uniqueId == placeObject.uniqueId);
+    placeObject.element.remove();
+    places.splice(placeToRemoveIndex, 1);
   });
   return;
 }
