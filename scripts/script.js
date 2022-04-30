@@ -79,8 +79,25 @@ function initializePopupOpen(popupObject, previewPopupData = null) {
       }
       break;
   }
+  return;
 }
 
+/**
+ * Function initializes popup inputs. It sets itput values to required
+ * data, or clears inputs
+ * @param {object} popupObject - object for intitalization
+ */
 function initializePopupInputs(popupObject) {
-
+  const popupType = getPopupType(popupObject);
+  switch (popupType) {
+    case "edit":
+      popupObject.userName.value = userName.textContent;
+      popupObject.userInfo.value = userInfo.textContent;
+      break;
+    case "add":
+      popupObject.placeName.value = "";
+      popupObject.placeLink.value = "";
+      break;
+  }
+  return;
 }
