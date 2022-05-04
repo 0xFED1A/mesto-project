@@ -10,7 +10,7 @@ const gallery = page.querySelector(".gallery__items");
 // profile popup
 const profilePopupElement = page.querySelector("#popup_profile_edit");
 const profilePopupOpen = 
-  profilePopupElement.querySelector(".profile__button-edit");
+  page.querySelector(".profile__button-edit");
 const profilePopupClose =
   profilePopupElement.querySelector(".popup__button-close");
 const profilePopupForm =
@@ -25,7 +25,7 @@ const profilePopupSaveButton =
 // place popup
 const placePopupElement = page.querySelector("#popup_img_add");
 const placePopupOpen =
-  placePopupElement.querySelector(".profile__button-add");
+  page.querySelector(".profile__button-add");
 const placePopupClose =
   placePopupElement.querySelector(".popup__button-close");
 const placePopupForm =
@@ -99,12 +99,17 @@ previewPopupClose.addEventListener("click", () => {
 });
 
 // popup functions
+/**
+ * function adds class "popup_opened" to popup element
+ * @param {object} popupElement - element to attach class
+ */
 function openPopup(popupElement) {
-  
+  popupElement.classList.add("popup_opened");
+  return;
 }
 
 function closePopup(popupElement) {
-
+  
 }
 
 function initializePopupInput(popupInput, inputValue) {
