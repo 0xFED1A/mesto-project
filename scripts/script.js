@@ -66,12 +66,34 @@ function closePopup(popupElement) {
 }
 
 /**
- * function intializes value of passed input element with passed string
- * @param {object} popupInput - input element to intialize
- * @param {string} inputValue - string wich will be used for intialization
+ * function initializes value of passed input element with passed string
+ * @param {object} popupInput - input element to initialize
+ * @param {string} inputValue - string which will be used for initialization
  */
 function initializePopupInput(popupInput, inputValue) {
   popupInput.value = inputValue;
+  return;
+}
+
+/**
+ * function initializes content of preview popup image with passed args
+ * @param {object} popupImage - popup image element for initialization
+ * @param {string} src - string which will be used to initialize src attribute
+ * @param {string} alt - string which will be used to initialize alt attribute
+ */
+function intializePopupImage(popupImage, src, alt) {
+  popupImage.src = src;
+  popupImage.alt = alt;
+  return;
+}
+
+/**
+ * function initializes text content of preview popup caption with passed arg
+ * @param {object} popupCaption - popup cation element for intialization
+ * @param {string} text - string which will be displayed in caption
+ */
+function initializePopupCaption(popupCaption, text) {
+  popupCaption.textContent = text;
   return;
 }
 
