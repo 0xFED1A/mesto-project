@@ -117,12 +117,18 @@ function closePopup(popupElement) {
   return;
 }
 
+/**
+ * function intializes value of passed input element with passed string
+ * @param {object} popupInput - input element to intialize
+ * @param {string} inputValue - string wich will be used for intialization
+ */
 function initializePopupInput(popupInput, inputValue) {
-
+  popupInput.value = inputValue;
+  return;
 }
 
 function savePopupInput(popupInput, placeToSave) {
-
+  
 }
 
 // place functions
