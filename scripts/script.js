@@ -127,8 +127,14 @@ function initializePopupInput(popupInput, inputValue) {
   return;
 }
 
+/**
+ * function saves input values in passed elements .textContent property
+ * @param {object} popupInput - input element to save value from
+ * @param {object} placeToSave - element to save to
+ */
 function savePopupInput(popupInput, placeToSave) {
-  
+  placeToSave.textContent = popupInput.value;
+  return;
 }
 
 // place functions
