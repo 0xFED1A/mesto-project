@@ -19,7 +19,7 @@ const profilePopupUserName =
   profilePopupElement.querySelector(".form__input_user_name");
 const profilePopupUserInfo =
   profilePopupElement.querySelector(".form__input_user_description");
-const profPopupSaveButton =
+const profilePopupSaveButton =
   profilePopupElement.querySelector(".popup__button-save");
 
 // place popup
@@ -46,6 +46,58 @@ const previewPopupImage =
 const previewPopupCaption =
   previewPopupElement.querySelector(".popup__item-info");
 
+// profile popup listeners
+profilePopupOpen.addEventListener("click", () => {
+  initializePopupInput(profilePopupUserName, userName.textContent);
+  initializePopupInput(profilePopupUserInfo, userInfo.textContent);
+  openPopup(profilePopupElement);
+  return;
+});
+profilePopupClose.addEventListener("click", () => {
+  closePopup(profilePopupElement);
+  return;
+});
+profilePopupForm.addEventListener("submit", event => {
+  event.preventDefault();
+  return;
+});
+profilePopupSaveButton.addEventListener("click", event => {
+  event.preventDefault();
+  savePopupInput(profilePopupUserName, userName);
+  savePopupInput(profilePopupUserInfo, userInfo);
+  closePopup(profilePopupElement);
+  return;
+});
+
+// place popup listeners
+placePopupOpen.addEventListener("click", () => {
+  initializePopupInput(placePopupPlaceName, "");
+  initializePopupInput(placePopupPlaceLink, "");
+  openPopup(placePopupElement);
+  return;
+});
+placePopupClose.addEventListener("click", () => {
+  closePopup(placePopupElement);
+  return;
+});
+placePopupForm.addEventListener("submit", event => {
+  event.preventDefault();
+  return;
+});
+placePopupUploadButton.addEventListener("click", event => {
+  event.preventDefault();
+  const newCard = 
+    createCard(placePopupPlaceName.value, placePopupPlaceLink.value);
+  renderCard(newCard, gallery);
+  closePopup(placePopupElement);
+  return;
+});
+
+// preview popup listeners
+previewPopupClose.addEventListener("click", () => {
+  closePopup(previewPopupElement);
+});
+
 // popup functions
 function openPopup(popupElement) {
   
@@ -62,7 +114,6 @@ function initializePopupInput(popupInput, inputValue) {
 function savePopupInput(popupInput, placeToSave) {
 
 }
-
 
 // place functions
 const places = [];
