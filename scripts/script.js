@@ -47,138 +47,22 @@ const previewPopupCaption =
   previewPopupElement.querySelector(".popup__item-info");
 
 // popup functions
-/**
- * function runs full cycle of popup intitalization
- * @param {object} popupObject - object for intitalization
- */
-function initializePopup(popupObject) {
-  initializePopupOpen(popupObject);
-  initializePopupClose(popupObject);
-  initializePopupForm(popupObject);
-  initializePopupInputs(popupObject);
-  initializePopupSubmit(popupObject);
-  return;
+function openPopup(popupElement) {
+  
 }
 
-/**
- * function return one of three available popup object types
- * @param {object} popupObject - popup object to get type
- * @returns {string} - type of popup object
- */
-function getPopupType(popupObject) {
-  const popupTypes = ["add", "edit", "preview"];
-  return popupTypes.find(popupType => popupObject.popup.id.includes(popupType));
+function closePopup(popupElement) {
+
 }
 
-/**
- * function intitalizes popup open property: attaches event listeners
- * on open element if needed and calls popup input initialization if needed
- * @param {object} popupObject - object for initialization
- * @param {array} previewPopupData - array of data required for preview popup
- * initialization
- */
-function initializePopupOpen(popupObject, previewPopupData = null) {
-  const popupType = getPopupType(popupObject);
-  switch (popupType) {
-    case "add":
-    case "edit":
-      popupObject.open.addEventListener("click", () => {
-        initializePopupInputs(popupObject);
-        popupObject.popup.classList.add("popup_opened");
-      });
-      break;
-    case "preview":
-      if (previewPopupData) {
-        popupObject.caption.textContent = previewPopupData[0];
-        popupObject.image.alt = previewPopupData[0];
-        popupObject.image.src = previewPopupData[1];
-        popupObject.popup.classList.add("popup_opened");
-      }
-      break;
-  }
-  return;
+function initializePopupInput(popupInput, inputValue) {
+
 }
 
-/**
- * function initializes popup close element: it adds event listener on close
- * button
- * @param {object} popupObject - object for intitalization
- */
-function initializePopupClose(popupObject) {
-  popupObject.close.addEventListener("click", () => {
-    popupObject.popup.classList.remove("popup_opened");
-  });
-  return;
+function savePopupInput(popupInput, placeToSave) {
+
 }
 
-/**
- * function initialize popup form element: it attaches evenet listener to it,
- * and prevent form from default behaviour
- * @param {object} popupObject - object for initialization
- */
-function initializePopupForm(popupObject) {
-  const popupType = getPopupType(popupObject);
-  switch (popupType) {
-    case "add":
-    case "edit":
-      popupObject.form.addEventListener("submit", event => {
-        event.preventDefault();
-      });
-      break;
-  }
-  return;
-}
-
-/**
- * function initializes popup inputs. It sets itput values to required
- * data, or clears inputs
- * @param {object} popupObject - object for intitalization
- */
-function initializePopupInputs(popupObject) {
-  const popupType = getPopupType(popupObject);
-  switch (popupType) {
-    case "edit":
-      popupObject.userName.value = userName.textContent;
-      popupObject.userInfo.value = userInfo.textContent;
-      break;
-    case "add":
-      popupObject.placeName.value = "";
-      popupObject.placeLink.value = "";
-      break;
-  }
-  return;
-}
-
-/**
- * function initializes popup submit element. It attaches event listener to
- * submit button and prevents default behaviour. It also saves input values
- * @param {object} popupObject - object for intitalization
- */
-function initializePopupSubmit(popupObject) {
-  const popupType = getPopupType(popupObject);
-  switch (popupType) {
-    case "edit":
-      popupObject.save.addEventListener("click", event => {
-        event.preventDefault();
-        userName.textContent = popupObject.userName.value;
-        userInfo.textContent = popupObject.userInfo.value;
-        popupObject.popup.classList.remove("popup_opened");
-      });
-      break;
-    case "add":
-      popupObject.upload.addEventListener("click", event => {
-        event.preventDefault();
-        const newPlace = createPlace();
-        initializePlace(
-          newPlace, popupObject.placeName.value, popupObject.placeLink.value
-        );
-        insertPlace(newPlace);
-        popupObject.popup.classList.remove("popup_opened");
-      });
-      break;
-  }
-  return;
-}
 
 // place functions
 const places = [];
