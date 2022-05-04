@@ -177,6 +177,13 @@ function initializePopupSubmit(popupObject) {
 }
 
 // place functions
+function createCard(placeName, placeLink) {
+
+}
+
+function renderCard(placeElement) {
+
+}
 
 // main logic
 popups.forEach(popup => initializePopup(popup));
