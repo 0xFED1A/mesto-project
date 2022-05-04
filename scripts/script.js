@@ -146,9 +146,6 @@ function renderCard(placeElement) {
 
 }
 
-// main logic
-popups.forEach(popup => initializePopup(popup));
-
 const initialCards = [
   {
     name: 'Архыз',
