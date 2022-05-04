@@ -22,7 +22,6 @@ const profilePopupUserInfo =
 const profPopupSaveButton =
   profilePopupElement.querySelector(".popup__button-save");
 
-
 // place popup
 const placePopupElement = page.querySelector("#popup_img_add");
 const placePopupOpen =
@@ -40,14 +39,12 @@ const placePopupUploadButton =
 
 // preview popup
 const previewPopupElement = page.querySelector("#popup_img_preview");
-const previewPopup = {
-  popup: previewPopupElement,
-  close: previewPopupElement.querySelector(".popup__button-close"),
-  image: previewPopupElement.querySelector(".popup__image"),
-  caption: previewPopupElement.querySelector(".popup__item-info")
-};
-
-const popups = [profilePopup, placePopup, previewPopup];
+const previewPopupClose =
+  previewPopupElement.querySelector(".popup__button-close");
+const previewPopupImage =
+  previewPopupElement.querySelector(".popup__image");
+const previewPopupCaption =
+  previewPopupElement.querySelector(".popup__item-info");
 
 // popup functions
 /**
