@@ -176,7 +176,7 @@ function initializePopupSubmit(popupObject) {
   return;
 }
 
-// place functions
+// card functions
 /**
  * function creates new card. It generates card element from templaete and
  * itializes it children elements values with passed args
@@ -211,8 +211,14 @@ function createCard(cardName, cardLink) {
   return newCard;
 }
 
-function renderCard(placeElement) {
-
+/**
+ * function prepends card to card container element 
+ * @param {object} card - card to add to container
+ * @param {object} cardContainer - container for cards
+ */
+function renderCard(card, cardContainer) {
+  cardContainer.prepend(card);
+  return;
 }
 
 // main logic
