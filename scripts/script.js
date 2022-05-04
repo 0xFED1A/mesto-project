@@ -33,7 +33,7 @@ const placePopupForm =
 const placePopupPlaceName =
   placePopupElement.querySelector(".form__input_place_name");
 const placePopupPlaceLink = 
-  placePopupElement.querySelectorAll(".form__input_place_link");
+  placePopupElement.querySelector(".form__input_place_link");
 const placePopupUploadButton =
   placePopupElement.querySelector(".popup__button-save");
 
@@ -104,15 +104,15 @@ function createCard(cardName, cardLink) {
     openPopup(previewPopupElement);
   });
 
-  const newCardCaption = newCard.querySelector("gallery__item-name");
+  const newCardCaption = newCard.querySelector(".gallery__item-name");
   newCardCaption.textContent = cardName;
 
-  const newCardLikeButton = newCard.querySelector("gallery__button-like");
+  const newCardLikeButton = newCard.querySelector(".gallery__button-like");
   newCardLikeButton.addEventListener("click", () => {
     newCardLikeButton.classList.toggle("gallery__button-like_active");
   });
 
-  const newCardRemoveButton = newCard.querySelector("gallery__button-delete");
+  const newCardRemoveButton = newCard.querySelector(".gallery__button-delete");
   newCardRemoveButton.addEventListener("click", () => {
     newCard.remove();
   });
