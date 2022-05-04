@@ -9,7 +9,7 @@
   opacity: 0;
   visibility: hidden;
 
-  transition: visibility 0s, opacity 0.18s linear;
+  transition: visibility 0.22s, opacity 0.22s linear;
 
   display: flex;
 
