@@ -116,116 +116,12 @@ function savePopupInput(popupInput, placeToSave) {
 }
 
 // place functions
-const places = [];
+function createCard(placeName, placeLink) {
 
-/**
- * function creates empty place object. This object is a template of place card.
- * Ugly hack with "static variable" included
- * @returns {object} - new place object
- */
-function createPlace() {
-  const placeElementTemplate = page.querySelector("#gallery_template").content;
-  const newPlaceElement =
-    placeElementTemplate.querySelector(".gallery__item").cloneNode(true);
-
-  // trying to mimic function static variable
-  createPlace.idCounter = typeof createPlace.idCounter === "undefined" ?
-    0 : ++createPlace.idCounter;
-
-  const newPlaceObject = {
-    element: newPlaceElement,
-    uniqueId: createPlace.idCounter,
-    image: null,
-    caption: null,
-    like: null,
-    remove: null
-  };
-  return newPlaceObject;
 }
 
-/** function runs full cycle of place intialization
- * @param {object} placeObject - object to initialize
- * @param {string} placeName - string which will be used to initialize image
- * and caption
- * @param {string} placeLink - string which will be used to initialize image
- * @returns {object} - fully initialized place object
- */
-function initializePlace(placeObject, placeName, placeLink) {
-  initializePlaceImage(placeObject, placeName, placeLink);
-  initializePlaceCaption(placeObject, placeName, placeLink);
-  initializePlaceLike(placeObject);
-  initializePlaceRemove(placeObject);
-  return placeObject;
-}
+function renderCard(placeElement) {
 
-/**
- * function intializes image of places object
- * @param {object} placeObject - object to initialize
- * @param {string} placeName - string which will be used to initialize image
- * alt attribute
- * @param {string} placeLink - string which will be used to initialize image
- * src attribute
- */
-function initializePlaceImage(placeObject, placeName, placeLink) {
-  placeObject.image = placeObject.element.querySelector(".gallery__image");
-  placeObject.image.src = placeLink;
-  placeObject.image.alt = placeName;
-  placeObject.image.addEventListener("click", () => {
-    initializePopupOpen(previewPopup, [placeName, placeLink]);
-  });
-  return;
-}
-
-/**
- * function intialize text of place object
- * @param {object} placeObject - object to initialize
- * @param {string} placeName - string which will be used to initialize caption
- * text
- */
-function initializePlaceCaption(placeObject, placeName) {
-  placeObject.caption =
-    placeObject.element.querySelector(".gallery__item-name");
-  placeObject.caption.textContent = placeName;
-  return;
-}
-
-/**
- * function initializes like button in place object
- * @param {object} placeObject - object to initialize
- */
-function initializePlaceLike(placeObject) {
-  placeObject.like = placeObject.element.querySelector(".gallery__button-like");
-  placeObject.like.addEventListener("click", () => {
-    placeObject.like.classList.toggle("gallery__button-like_active");
-  });
-  return;
-}
-
-/**
- * function intitalizes remove buttoin in place object
- * @param {object} placeObject - object to initialize
- */
-function initializePlaceRemove(placeObject) {
-  placeObject.remove =
-    placeObject.element.querySelector(".gallery__button-delete");
-  placeObject.remove.addEventListener("click", () => {
-    const placeToRemoveIndex =
-      places.findIndex(place => place.uniqueId == placeObject.uniqueId);
-    placeObject.element.remove();
-    places.splice(placeToRemoveIndex, 1);
-  });
-  return;
-}
-
-/**
- * function inserts intitalized place element in document. It also stores
- * intialized object in array to keep track of this objects
- * @param {object} placeObject - object to initialize
- */
-function insertPlace(placeObject) {
-  places.push(placeObject);
-  gallery.prepend(places[places.length - 1].element);
-  return;
 }
 
 // main logic
@@ -257,7 +153,3 @@ const initialCards = [
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
 ];
-
-initialCards.forEach(card =>
-  insertPlace(initializePlace(createPlace(), card.name, card.link))
-);
