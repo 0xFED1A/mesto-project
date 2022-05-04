@@ -113,7 +113,7 @@ function openPopup(popupElement) {
  * @param {object} popupElement - element to remove class
  */
 function closePopup(popupElement) {
-  popupElement.classList.remove("popup_closed");
+  popupElement.classList.remove("popup_opened");
   return;
 }
 
