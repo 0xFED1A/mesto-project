@@ -177,8 +177,38 @@ function initializePopupSubmit(popupObject) {
 }
 
 // place functions
-function createCard(placeName, placeLink) {
+/**
+ * function creates new card. It generates card element from templaete and
+ * itializes it children elements values with passed args
+ * @param {string} cardName - string which contains card name
+ * @param {string} cardLink - string which contains card link
+ * @returns {object} - created and intialized card element
+ */
+function createCard(cardName, cardLink) {
+  const cardTemplate = gallery.querySelector("#gallery_template").content;
+  const newCard = cardTemplate.querySelector(".gallery__item").cloneNode(true);
 
+  const newCardImage = newCard.querySelector(".gallery__image");
+  newCardImage.src = cardLink;
+  newCardImage.alt = cardName;
+  newCardImage.addEventListener("click", () => {
+    openPopup(previewPopup);
+  });
+
+  const newCardCaption = newCard.querySelector("gallery__item-name");
+  newCardCaption.textContent = cardName;
+
+  const newCardLikeButton = newCard.querySelector("gallery__button-like");
+  newCardLikeButton.addEventListener("click", () => {
+    newCardLikeButton.classList.toggle("gallery__button-like_active");
+  });
+
+  const newCardRemoveButton = newCard.querySelector("gallery__button-delete");
+  newCardRemoveButton.addEventListener("click", () => {
+    newCard.remove();
+  });
+  
+  return newCard;
 }
 
 function renderCard(placeElement) {
