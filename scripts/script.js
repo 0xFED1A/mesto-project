@@ -81,7 +81,7 @@ function initializePopupInput(popupInput, inputValue) {
  * @param {string} src - string which will be used to initialize src attribute
  * @param {string} alt - string which will be used to initialize alt attribute
  */
-function intializePopupImage(popupImage, src, alt) {
+function initializePopupImage(popupImage, src, alt) {
   popupImage.src = src;
   popupImage.alt = alt;
   return;
@@ -90,8 +90,8 @@ function intializePopupImage(popupImage, src, alt) {
 /**
  * function initializes text content of preview popup caption with passed arg
  * @param {object} popupCaption - popup cation element for intialization
- * @param {string} text - string which will be displayed in caption
- */
+  *@param {string} text - string which will be displayed in caption
+  */
 function initializePopupCaption(popupCaption, text) {
   popupCaption.textContent = text;
   return;
@@ -113,7 +113,7 @@ function savePopupInput(popupInput, placeToSave) {
  * itializes it children elements values with passed args
  * @param {string} cardName - string which contains card name
  * @param {string} cardLink - string which contains card link
- * @returns {object} - created and intialized card element
+ * @returns {object} - created and initialized card element
  */
 function createCard(cardName, cardLink) {
   const cardTemplate = gallery.querySelector("#gallery_template").content;
@@ -123,6 +123,8 @@ function createCard(cardName, cardLink) {
   newCardImage.src = cardLink;
   newCardImage.alt = cardName;
   newCardImage.addEventListener("click", () => {
+    initializePopupImage(previewPopupImage, cardLink, cardName);
+    initializePopupCaption(previewPopupCaption, cardName);
     openPopup(previewPopupElement);
   });
 
@@ -232,4 +234,6 @@ previewPopupClose.addEventListener("click", () => {
 });
 
 // main logic
-initialCards.forEach(card => renderCard(createCard(card.name, card.link), gallery));
+initialCards.forEach(
+  card => renderCard(createCard(card.name, card.link), gallery)
+);
