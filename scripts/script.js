@@ -136,6 +136,17 @@ function initializePopupInput(popupInput, inputValue) {
 function intializePopupImage(popupImage, src, alt) {
   popupImage.src = src;
   popupImage.alt = alt;
+  return;
+}
+
+/**
+ * function initializes text content of preview popup caption with passed arg
+ * @param {object} popupCaption - popup cation element for intialization
+ * @param {string} text - string which will be displayed in caption
+ */
+function initializePopupCaption(popupCaption, text) {
+  popupCaption.textContent = text;
+  return;
 }
 
 /**
