@@ -9,15 +9,19 @@ const gallery = page.querySelector(".gallery__items");
 
 // profile popup
 const profilePopupElement = page.querySelector("#popup_profile_edit");
-const profilePopup = {
-  popup: profilePopupElement,
-  open: profile.querySelector(".profile__button-edit"),
-  close: profilePopupElement.querySelector(".popup__button-close"),
-  form: profilePopupElement.querySelector(".popup__form"),
-  userName: profilePopupElement.querySelectorAll(".form__input")[0],
-  userInfo: profilePopupElement.querySelectorAll(".form__input")[1],
-  save: profilePopupElement.querySelector(".popup__button-save")
-};
+const profilePopupOpen = 
+  profilePopupElement.querySelector(".profile__button-edit");
+const profilePopupClose =
+  profilePopupElement.querySelector(".popup__button-close");
+const profilePopupForm =
+  profilePopupElement.querySelector(".popup__form");
+const profilePopupUserName =
+  profilePopupElement.querySelector(".form__input_user_name");
+const profilePopupUserInfo =
+  profilePopupElement.querySelectorAll(".form__input_user_description");
+const profPopupSaveButton =
+  profilePopupElement.querySelector(".popup__button-save");
+
 
 // place popup
 const placePopupElement = page.querySelector("#popup_img_add");
