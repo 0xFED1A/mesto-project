@@ -46,58 +46,6 @@ const previewPopupImage =
 const previewPopupCaption =
   previewPopupElement.querySelector(".popup__item-info");
 
-// profile popup listeners
-profilePopupOpen.addEventListener("click", () => {
-  initializePopupInput(profilePopupUserName, userName.textContent);
-  initializePopupInput(profilePopupUserInfo, userInfo.textContent);
-  openPopup(profilePopupElement);
-  return;
-});
-profilePopupClose.addEventListener("click", () => {
-  closePopup(profilePopupElement);
-  return;
-});
-profilePopupForm.addEventListener("submit", event => {
-  event.preventDefault();
-  return;
-});
-profilePopupSaveButton.addEventListener("click", event => {
-  event.preventDefault();
-  savePopupInput(profilePopupUserName, userName);
-  savePopupInput(profilePopupUserInfo, userInfo);
-  closePopup(profilePopupElement);
-  return;
-});
-
-// place popup listeners
-placePopupOpen.addEventListener("click", () => {
-  initializePopupInput(placePopupPlaceName, "");
-  initializePopupInput(placePopupPlaceLink, "");
-  openPopup(placePopupElement);
-  return;
-});
-placePopupClose.addEventListener("click", () => {
-  closePopup(placePopupElement);
-  return;
-});
-placePopupForm.addEventListener("submit", event => {
-  event.preventDefault();
-  return;
-});
-placePopupUploadButton.addEventListener("click", event => {
-  event.preventDefault();
-  const newCard = 
-    createCard(placePopupPlaceName.value, placePopupPlaceLink.value);
-  renderCard(newCard, gallery);
-  closePopup(placePopupElement);
-  return;
-});
-
-// preview popup listeners
-previewPopupClose.addEventListener("click", () => {
-  closePopup(previewPopupElement);
-});
-
 // popup functions
 /**
  * function adds class "popup_opened" to popup element
@@ -153,7 +101,7 @@ function createCard(cardName, cardLink) {
   newCardImage.src = cardLink;
   newCardImage.alt = cardName;
   newCardImage.addEventListener("click", () => {
-    openPopup(previewPopup);
+    openPopup(previewPopupElement);
   });
 
   const newCardCaption = newCard.querySelector("gallery__item-name");
@@ -168,7 +116,6 @@ function createCard(cardName, cardLink) {
   newCardRemoveButton.addEventListener("click", () => {
     newCard.remove();
   });
-  
   return newCard;
 }
 
@@ -182,6 +129,7 @@ function renderCard(card, cardContainer) {
   return;
 }
 
+// data for intial cards
 const initialCards = [
   {
     name: 'Архыз',
@@ -208,3 +156,58 @@ const initialCards = [
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
 ];
+
+// profile popup listeners
+profilePopupOpen.addEventListener("click", () => {
+  initializePopupInput(profilePopupUserName, userName.textContent);
+  initializePopupInput(profilePopupUserInfo, userInfo.textContent);
+  openPopup(profilePopupElement);
+  return;
+});
+profilePopupClose.addEventListener("click", () => {
+  closePopup(profilePopupElement);
+  return;
+});
+profilePopupForm.addEventListener("submit", event => {
+  event.preventDefault();
+  return;
+});
+profilePopupSaveButton.addEventListener("click", event => {
+  event.preventDefault();
+  savePopupInput(profilePopupUserName, userName);
+  savePopupInput(profilePopupUserInfo, userInfo);
+  closePopup(profilePopupElement);
+  return;
+});
+
+// place popup listeners
+placePopupOpen.addEventListener("click", () => {
+  initializePopupInput(placePopupPlaceName, "");
+  initializePopupInput(placePopupPlaceLink, "");
+  openPopup(placePopupElement);
+  return;
+});
+placePopupClose.addEventListener("click", () => {
+  closePopup(placePopupElement);
+  return;
+});
+placePopupForm.addEventListener("submit", event => {
+  event.preventDefault();
+  return;
+});
+placePopupUploadButton.addEventListener("click", event => {
+  event.preventDefault();
+  const newCard = 
+    createCard(placePopupPlaceName.value, placePopupPlaceLink.value);
+  renderCard(newCard, gallery);
+  closePopup(placePopupElement);
+  return;
+});
+
+// preview popup listeners
+previewPopupClose.addEventListener("click", () => {
+  closePopup(previewPopupElement);
+});
+
+// main logic
+initialCards.forEach(card => renderCard(createCard(card.name, card.link), gallery));
