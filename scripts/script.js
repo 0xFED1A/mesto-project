@@ -105,25 +105,24 @@ function savePopupInput(popupInput, placeToSave) {
 /**
  * function creates new card. It generates card element from templaete and
  * itializes it children elements values with passed args
- * @param {string} cardName - string which contains card name
- * @param {string} cardLink - string which contains card link
+ * @param {object} cardData - object wich contains data for card creation
  * @returns {object} - created and initialized card element
  */
-function createCard(cardName, cardLink) {
+function createCard(cardData) {
   const cardTemplate = gallery.querySelector("#gallery_template").content;
   const newCard = cardTemplate.querySelector(".gallery__item").cloneNode(true);
 
   const newCardImage = newCard.querySelector(".gallery__image");
-  newCardImage.src = cardLink;
-  newCardImage.alt = cardName;
+  newCardImage.src = cardData.link;
+  newCardImage.alt = cardData.name;
   newCardImage.addEventListener("click", () => {
-    initializePopupImage(previewPopupImage, cardLink, cardName);
-    initializePopupCaption(previewPopupCaption, cardName);
+    initializePopupImage(previewPopupImage, cardData.link, cardData.name);
+    initializePopupCaption(previewPopupCaption, cardData.name);
     openPopup(previewPopupElement);
   });
 
   const newCardCaption = newCard.querySelector(".gallery__item-name");
-  newCardCaption.textContent = cardName;
+  newCardCaption.textContent = cardData.name;
 
   const newCardLikeButton = newCard.querySelector(".gallery__button-like");
   newCardLikeButton.addEventListener("click", () => {
@@ -208,7 +207,7 @@ placePopupForm.addEventListener("submit", event => {
 placePopupUploadButton.addEventListener("click", event => {
   event.preventDefault();
   const newCard = 
-    createCard(placePopupPlaceName.value, placePopupPlaceLink.value);
+    createCard({name: placePopupPlaceName.value, link: placePopupPlaceLink.value});
   renderCard(newCard, gallery);
   closePopup(placePopupElement);
 });
@@ -220,5 +219,5 @@ previewPopupClose.addEventListener("click", () => {
 
 // main logic
 initialCards.forEach(
-  card => renderCard(createCard(card.name, card.link), gallery)
+  card => renderCard(createCard(card), gallery)
 );
