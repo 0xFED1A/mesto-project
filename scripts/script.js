@@ -53,7 +53,6 @@ const previewPopupCaption =
  */
 function openPopup(popupElement) {
   popupElement.classList.add("popup_opened");
-  return;
 }
 
 /**
@@ -62,7 +61,6 @@ function openPopup(popupElement) {
  */
 function closePopup(popupElement) {
   popupElement.classList.remove("popup_opened");
-  return;
 }
 
 /**
@@ -72,7 +70,6 @@ function closePopup(popupElement) {
  */
 function initializePopupInput(popupInput, inputValue) {
   popupInput.value = inputValue;
-  return;
 }
 
 /**
@@ -84,7 +81,6 @@ function initializePopupInput(popupInput, inputValue) {
 function initializePopupImage(popupImage, src, alt) {
   popupImage.src = src;
   popupImage.alt = alt;
-  return;
 }
 
 /**
@@ -94,7 +90,6 @@ function initializePopupImage(popupImage, src, alt) {
   */
 function initializePopupCaption(popupCaption, text) {
   popupCaption.textContent = text;
-  return;
 }
 
 /**
@@ -104,7 +99,6 @@ function initializePopupCaption(popupCaption, text) {
  */
 function savePopupInput(popupInput, placeToSave) {
   placeToSave.textContent = popupInput.value;
-  return;
 }
 
 // card functions
@@ -150,7 +144,6 @@ function createCard(cardName, cardLink) {
  */
 function renderCard(card, cardContainer) {
   cardContainer.prepend(card);
-  return;
 }
 
 // data for intial cards
@@ -186,22 +179,18 @@ profilePopupOpen.addEventListener("click", () => {
   initializePopupInput(profilePopupUserName, userName.textContent);
   initializePopupInput(profilePopupUserInfo, userInfo.textContent);
   openPopup(profilePopupElement);
-  return;
 });
 profilePopupClose.addEventListener("click", () => {
   closePopup(profilePopupElement);
-  return;
 });
 profilePopupForm.addEventListener("submit", event => {
   event.preventDefault();
-  return;
 });
 profilePopupSaveButton.addEventListener("click", event => {
   event.preventDefault();
   savePopupInput(profilePopupUserName, userName);
   savePopupInput(profilePopupUserInfo, userInfo);
   closePopup(profilePopupElement);
-  return;
 });
 
 // place popup listeners
@@ -209,15 +198,12 @@ placePopupOpen.addEventListener("click", () => {
   initializePopupInput(placePopupPlaceName, "");
   initializePopupInput(placePopupPlaceLink, "");
   openPopup(placePopupElement);
-  return;
 });
 placePopupClose.addEventListener("click", () => {
   closePopup(placePopupElement);
-  return;
 });
 placePopupForm.addEventListener("submit", event => {
   event.preventDefault();
-  return;
 });
 placePopupUploadButton.addEventListener("click", event => {
   event.preventDefault();
@@ -225,7 +211,6 @@ placePopupUploadButton.addEventListener("click", event => {
     createCard(placePopupPlaceName.value, placePopupPlaceLink.value);
   renderCard(newCard, gallery);
   closePopup(placePopupElement);
-  return;
 });
 
 // preview popup listeners
