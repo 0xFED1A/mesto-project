@@ -184,11 +184,10 @@ profilePopupClose.addEventListener("click", () => {
 });
 profilePopupForm.addEventListener("submit", event => {
   event.preventDefault();
-});
-profilePopupSaveButton.addEventListener("click", event => {
-  event.preventDefault();
   savePopupInput(profilePopupUserName, userName);
   savePopupInput(profilePopupUserInfo, userInfo);
+});
+profilePopupSaveButton.addEventListener("click", () => {
   closePopup(profilePopupElement);
 });
 
@@ -203,12 +202,11 @@ placePopupClose.addEventListener("click", () => {
 });
 placePopupForm.addEventListener("submit", event => {
   event.preventDefault();
-});
-placePopupUploadButton.addEventListener("click", event => {
-  event.preventDefault();
   const newCard = 
     createCard({name: placePopupPlaceName.value, link: placePopupPlaceLink.value});
   renderCard(newCard, gallery);
+});
+placePopupUploadButton.addEventListener("click", () => {
   closePopup(placePopupElement);
 });
 
