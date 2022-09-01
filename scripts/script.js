@@ -16,9 +16,9 @@ const profilePopupClose =
 const profilePopupForm =
   profilePopupElement.querySelector(".popup__form");
 const profilePopupUserName =
-  profilePopupElement.querySelector(".form__input_user_name");
+  profilePopupElement.querySelector(".form__input_user-name");
 const profilePopupUserInfo =
-  profilePopupElement.querySelector(".form__input_user_description");
+  profilePopupElement.querySelector(".form__input_user-description");
 const profilePopupSaveButton =
   profilePopupElement.querySelector(".popup__button-save");
 
