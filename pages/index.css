@@ -17,6 +17,7 @@
 @import url("../blocks/form/__heading/form__heading.css");
 @import url("../blocks/form/__input-group/form__input-group.css");
 @import url("../blocks/form/__input/form__input.css");
+@import url("../blocks/form/__input/_error/form__input_error.css");
 @import url("../blocks/form/__input-error-msg/form__input-error-msg.css");
 
 /* import button */
