@@ -1,0 +1,17 @@
+/* rules for form__input-error-msg element */
+
+.form__input-error-msg {
+  margin: 0 0 10px 0;
+
+  font-size: 12px;
+  line-height: 14.5px;
+  font-weight: 400;
+
+  color: #f00;
+
+  display: block;
+}
+
+.form__input-error-msg:last-of-type {
+  margin: 0;
+}
