@@ -165,6 +165,45 @@ function renderCard(card, cardContainer) {
   cardContainer.prepend(card);
 }
 
+//validation functions
+
+function getErrorSpan(form, input) {
+}
+
+function showInputError(form, input, errorMessage, inputClass, errorClass) {
+}
+
+function hideInputError(form, input, inputClass, errorClass) {
+function hasInvalidInput(inputs) {
+}
+function isValid(form, input, inputClass, errorClass) {
+}
+function toggleButtonState(inputs, button, buttonClass) {
+}
+function setEventListeners(elems, classes) {
+}
+
+function enableValidation(config) {
+}
+//validation configs
+const userFormValidationConfig = {
+  formSelector: '#user_info',
+  inputSelector: '.form__input',
+  submitButtonSelector: '.popup__button-save',
+  inactiveButtonClass: 'popup__button-save_disabled',
+  inputErrorClass: 'form__input_error',
+  errorClass: 'form__input-error-msg_visible'
+};
+const placeFormValidationConfig = {
+  formSelector: '#place_info',
+  inputSelector: '.form__input',
+  submitButtonSelector: '.popup__button-save',
+  inactiveButtonClass: 'popup__button-save_disabled',
+  inputErrorClass: 'form__input_error',
+  errorClass: 'form__input-error-msg_visible'
+};
+
+
 // profile popup listeners
 profilePopupOpen.addEventListener("click", () => {
   initializePopupInput(profilePopupUserName, userName.textContent);
