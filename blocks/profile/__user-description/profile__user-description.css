@@ -37,5 +37,7 @@
     text-align: center;
 
     order: 3;
+    /* fix broken two-rows layout on mobile resolutions */
+    flex-basis: 100%;
   }
 }
