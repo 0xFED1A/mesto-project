@@ -277,6 +277,11 @@ profilePopupForm.addEventListener("submit", event => {
 profilePopupSaveButton.addEventListener("click", () => {
   closePopup(profilePopupElement);
 });
+// mousedown used instead of click to prevent accidental popup
+// close while selecting text with mouse inside field
+profilePopupElement.addEventListener("mousedown", evt => {
+  closePopupOnClick(evt.target);
+});
 
 // place popup listeners
 placePopupOpen.addEventListener("click", () => {
@@ -297,6 +302,15 @@ placePopupForm.addEventListener("submit", event => {
 placePopupUploadButton.addEventListener("click", () => {
   closePopup(placePopupElement);
 });
+placePopupElement.addEventListener("mousedown", evt => {
+  closePopupOnClick(evt.target);
+});
+
+
+function closePopupOnClick(popupElement) {
+  popupElement.classList.contains("popup") ? closePopup(popupElement) : null;
+}
+
 function closeOnEscape(evt) {
   const currentOpenedPopup = document.querySelector(".popup_opened");
   if (evt.key.toLowerCase() === "escape" && currentOpenedPopup) {
@@ -308,6 +322,10 @@ function closeOnEscape(evt) {
 previewPopupClose.addEventListener("click", () => {
   closePopup(previewPopupElement);
 });
+previewPopupElement.addEventListener("mousedown", evt => {
+  closePopupOnClick(evt.target);
+});
+
 
 // main logic
 initialCards.forEach(
