@@ -60,6 +60,9 @@
               placeholder="Имя"
               value=""
               spellcheck="false"
+              minlength="2"
+              maxlength="40"
+              required
             >
             <span class="form__input-error-msg">&nbsp;</span>
             <input
@@ -69,6 +72,9 @@
               placeholder="Описание"
               value=""
               spellcheck="false"
+              minlength="2"
+              maxlength="200"
+              required
             >
             <span class="form__input-error-msg">&nbsp;</span>
             <button
@@ -100,20 +106,24 @@
           <fieldset class="form__input-group">
             <input
               class="form__input form__input_place_name"
-              name = "place_name"
+              name= "place_name"
               type="text"
               placeholder="Название"
               value=""
               spellcheck="false"
+              minlength="2"
+              maxlength="30"
+              required
             >
             <span class="form__input-error-msg">&nbsp;</span>
             <input
               class="form__input form__input_place_link"
               name="place_link"
-              type="text"
+              type="url"
               placeholder="Ссылка на картинку"
               value=""
               spellcheck="false"
+              required
             >
             <span class="form__input-error-msg">&nbsp;</span>
             <button
