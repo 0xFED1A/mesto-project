@@ -62,6 +62,11 @@
               spellcheck="false"
               minlength="2"
               maxlength="40"
+              pattern="[A-Za-zА-Яа-яёЁ \-_]+"
+              data-error-message="
+                Имя пользователя может содержать только латинские буквы,
+                кириллические буквы, знаки дефиса и пробелы
+              "
               required
             >
             <span class="form__input-error-msg user_name-error">&nbsp;</span>
@@ -74,6 +79,11 @@
               spellcheck="false"
               minlength="2"
               maxlength="200"
+              pattern="[A-Za-zА-Яа-яёЁ \-_]+"
+              data-error-message="
+                Информация о пользователе может содержать только латинские буквы,
+                кириллические буквы, знаки дефиса и пробелы
+              "
               required
             >
             <span class="form__input-error-msg user_description-error">&nbsp;</span>
@@ -113,6 +123,11 @@
               spellcheck="false"
               minlength="2"
               maxlength="30"
+              pattern="[A-Za-zА-Яа-яёЁ \-_]+"
+              data-error-message="
+                Название может содержать только латинские буквы, кириллические
+                буквы, знаки дефиса и пробелы
+              "
               required
             >
             <span class="form__input-error-msg place_name-error">&nbsp;</span>

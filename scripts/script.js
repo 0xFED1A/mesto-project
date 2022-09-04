@@ -193,6 +193,8 @@ function hasInvalidInput(inputs) {
 
 function isValid(form, input, inputClass, errorClass) {
   if (!input.validity.valid) {
+    input.validity.patternMismatch ?
+      input.setCustomValidity(input.dataset.errorMessage) : input.setCustomValidity("");
     showInputError(form, input, input.validationMessage, inputClass, errorClass);
   } else {
     hideInputError(form, input, inputClass, errorClass);
