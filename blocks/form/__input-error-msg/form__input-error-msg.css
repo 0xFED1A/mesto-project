@@ -9,6 +9,8 @@
 
   color: #f00;
 
+  visibility: hidden;
+
   display: block;
 }
 
