@@ -168,23 +168,74 @@ function renderCard(card, cardContainer) {
 //validation functions
 
 function getErrorSpan(form, input) {
+  return form.querySelector(`.${input.name}-error`);
 }
 
 function showInputError(form, input, errorMessage, inputClass, errorClass) {
+  const errorSpan = getErrorSpan(form, input);
+  input.classList.add(inputClass);
+  errorSpan.textContent = errorMessage;
+  errorSpan.classList.add(errorClass);
 }
 
 function hideInputError(form, input, inputClass, errorClass) {
+  const errorSpan = getErrorSpan(form, input);
+  input.classList.remove(inputClass);
+  errorSpan.classList.remove(errorClass);
+  errorSpan.textContent = "&nbsp;";
+}
+
 function hasInvalidInput(inputs) {
+  return inputs.some(input => !input.validity.valid);
 }
+
 function isValid(form, input, inputClass, errorClass) {
+  if (!input.validity.valid) {
+    showInputError(form, input, input.validationMessage, inputClass, errorClass);
+  } else {
+    hideInputError(form, input, inputClass, errorClass);
+  }
 }
+
 function toggleButtonState(inputs, button, buttonClass) {
+  if (hasInvalidInput(inputs)) {
+    button.classList.add(buttonClass);
+    button.setAttribute("disabled", true);
+  } else {
+    button.classList.remove(buttonClass);
+    button.removeAttribute("disabled");
+  }
 }
+
 function setEventListeners(elems, classes) {
+  elems.form.addEventListener("submit", evt => evt.preventDefault());
+  // reset span error on every popup open
+  toggleButtonState(elems.inputs, elems.button, classes.buttonClass);
+  elems.inputs.forEach(input => {
+    // reset input error on every popup open
+    isValid(elems.form, input, classes.inputClass, classes.errorClass);
+    input.addEventListener('input', () => {
+      isValid(elems.form, input, classes.inputClass, classes.errorClass);
+      toggleButtonState(elems.inputs, elems.button, classes.buttonClass);
+    });
+  });
 }
 
 function enableValidation(config) {
+  const form = document.querySelector(config.formSelector);
+  const elems = {
+    form: form,
+    inputs: Array.from(form.querySelectorAll(config.inputSelector)), 
+    button: form.querySelector(config.submitButtonSelector)
+  };
+  const classes = {
+    buttonClass: config.inactiveButtonClass,
+    inputClass: config.inputErrorClass,
+    errorClass: config.errorClass
+  };
+  setEventListeners(elems, classes);
 }
+
 //validation configs
 const userFormValidationConfig = {
   formSelector: '#user_info',
@@ -209,6 +260,7 @@ profilePopupOpen.addEventListener("click", () => {
   initializePopupInput(profilePopupUserName, userName.textContent);
   initializePopupInput(profilePopupUserInfo, userInfo.textContent);
   openPopup(profilePopupElement);
+  enableValidation(userFormValidationConfig);
 });
 profilePopupClose.addEventListener("click", () => {
   closePopup(profilePopupElement);
@@ -227,6 +279,7 @@ placePopupOpen.addEventListener("click", () => {
   initializePopupInput(placePopupPlaceName, "");
   initializePopupInput(placePopupPlaceLink, "");
   openPopup(placePopupElement);
+  enableValidation(placeFormValidationConfig);
 });
 placePopupClose.addEventListener("click", () => {
   closePopup(placePopupElement);
