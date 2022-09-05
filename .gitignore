@@ -1,0 +1,6 @@
+#ignore vim\neovim swapfiles
+.sw[a-z]
+
+#ignore NPM directories
+/dist
+/node_modules

@@ -1,0 +1,9 @@
+/* rules for form__input_error modifier */
+
+.form__input_error {
+  border-bottom: 1px solid #f00;
+}
+
+.form__input_error:focus {
+  border-bottom: 1px solid #f00;
+}

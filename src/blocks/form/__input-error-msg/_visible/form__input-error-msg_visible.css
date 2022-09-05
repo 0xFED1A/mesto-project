@@ -1,0 +1,5 @@
+/* rules for form__input-error-msg_visible modifier */
+
+.form__input-error-msg_visible {
+  visibility: visible;
+}

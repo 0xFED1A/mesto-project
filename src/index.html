@@ -8,7 +8,6 @@
     <meta name="keywords" content="фотографии, место, mesto, mesto russia">
     <meta name="author"  content="Фёдор Шенделов">
     <title>Mesto</title>
-    <link rel="stylesheet" href="./pages/index.css">
   </head>
   <body class="page">
     <div
@@ -45,28 +44,52 @@
         >
           Закрыть форму редактирования профиля
         </button>
-        <form class="form popup__form" name="user_info">
+        <form
+          class="form popup__form"
+          name="user_info"
+          id="user_info"
+          novalidate
+        >
           <h2 class="form__heading">Редактировать профиль</h2>
           <fieldset class="form__input-group">
             <input
-              class="form__input form__input_user_name"
-              name = "user_name"
+              class="form__input form__input_user-name"
+              name= "user_name"
               type="text"
               placeholder="Имя"
               value=""
               spellcheck="false"
+              minlength="2"
+              maxlength="40"
+              pattern="[A-Za-zА-Яа-яёЁ \-_]+"
+              data-error-message="
+                Поле &quot;Имя&quot; может содержать только латинские буквы,
+                кириллические буквы, знаки дефиса и пробелы
+              "
+              required
             >
+            <span class="form__input-error-msg user_name-error"></span>
             <input
-              class="form__input form__input_user_description"
+              class="form__input form__input_user-description"
               name="user_description"
               type="text"
               placeholder="Описание"
               value=""
               spellcheck="false"
+              minlength="2"
+              maxlength="200"
+              pattern="[A-Za-zА-Яа-яёЁ \-_]+"
+              data-error-message="
+                Поле &quot;Описание&quot; может содержать только латинские буквы,
+                кириллические буквы, знаки дефиса и пробелы
+              "
+              required
             >
+            <span class="form__input-error-msg user_description-error"></span>
             <button
               class="button popup__button-save"
               type="submit"
+              name="user_submit"
             >
               Сохранить
             </button>
@@ -82,28 +105,45 @@
         >
           Закрыть форму добавления изображения
         </button>
-        <form class="form popup__form" name="user_info">
+        <form 
+          class="form popup__form"
+          name="place_info"
+          id="place_info"
+          novalidate
+        >
           <h2 class="form__heading">Новое место</h2>
           <fieldset class="form__input-group">
             <input
               class="form__input form__input_place_name"
-              name = "place_name"
+              name= "place_name"
               type="text"
               placeholder="Название"
               value=""
               spellcheck="false"
+              minlength="2"
+              maxlength="30"
+              pattern="[A-Za-zА-Яа-яёЁ \-_]+"
+              data-error-message="
+                Поле &quot;Название&quot; может содержать только латинские буквы, кириллические
+                буквы, знаки дефиса и пробелы
+              "
+              required
             >
+            <span class="form__input-error-msg place_name-error"></span>
             <input
               class="form__input form__input_place_link"
               name="place_link"
-              type="text"
+              type="url"
               placeholder="Ссылка на картинку"
               value=""
               spellcheck="false"
+              required
             >
+            <span class="form__input-error-msg place_link-error"></span>
             <button
               class="button popup__button-save"
               type="submit"
+              name="place_submit"
             >
               Создать
             </button>
@@ -114,7 +154,7 @@
     <header class="header page__header container container_place_header-footer">
       <img 
         class="header__logo"
-        src="./images/logo/logo.svg"
+        src="<%=require('./images/logo/logo.svg')%>"
         alt="Логотип Mesto"
       >
     </header>
@@ -125,15 +165,15 @@
             <source
               class="profile__src"
               srcset="
-                ./images/avatar/1x/avatar_1x.png 1x,
-                ./images/avatar/2x/avatar_2x.png 2x,
-                ./images/avatar/3x/avatar_3x.png 3x
+                <%=require('./images/avatar/1x/avatar_1x.png')%> 1x,
+                <%=require('./images/avatar/2x/avatar_2x.png')%> 2x,
+                <%=require('./images/avatar/3x/avatar_3x.png')%> 3x
               "
               type="image/png"
             >
             <img
               class="profile__image"
-              src="./images/avatar/1x/avatar_1x.png"
+              src="<%=require('./images/avatar/1x/avatar_1x.png')%>"
               alt="Аватар пользователя"
             >
           </picture>
@@ -193,6 +233,5 @@
     <footer class="footer page__footer container container_place_header-footer">
       <p class="footer__copy">&copy; 2020 Mesto Russia</p>
     </footer>
-    <script src="./scripts/script.js"></script>
   </body>
 </html>
