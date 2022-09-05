@@ -8,7 +8,6 @@
     <meta name="keywords" content="фотографии, место, mesto, mesto russia">
     <meta name="author"  content="Фёдор Шенделов">
     <title>Mesto</title>
-    <link rel="stylesheet" href="./pages/index.css">
   </head>
   <body class="page">
     <div
@@ -155,7 +154,7 @@
     <header class="header page__header container container_place_header-footer">
       <img 
         class="header__logo"
-        src="./images/logo/logo.svg"
+        src="<%=require('./images/logo/logo.svg')%>"
         alt="Логотип Mesto"
       >
     </header>
@@ -166,15 +165,15 @@
             <source
               class="profile__src"
               srcset="
-                ./images/avatar/1x/avatar_1x.png 1x,
-                ./images/avatar/2x/avatar_2x.png 2x,
-                ./images/avatar/3x/avatar_3x.png 3x
+                <%=require('./images/avatar/1x/avatar_1x.png')%> 1x,
+                <%=require('./images/avatar/2x/avatar_2x.png')%> 2x,
+                <%=require('./images/avatar/3x/avatar_3x.png')%> 3x
               "
               type="image/png"
             >
             <img
               class="profile__image"
-              src="./images/avatar/1x/avatar_1x.png"
+              src="<%=require('./images/avatar/1x/avatar_1x.png')%>"
               alt="Аватар пользователя"
             >
           </picture>
@@ -234,6 +233,5 @@
     <footer class="footer page__footer container container_place_header-footer">
       <p class="footer__copy">&copy; 2020 Mesto Russia</p>
     </footer>
-    <script src="./scripts/script.js"></script>
   </body>
 </html>

@@ -1,4 +1,5 @@
 "use strict";
+import './pages/index.css';
 
 // globals
 const page = document.querySelector(".page");
