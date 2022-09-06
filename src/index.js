@@ -52,7 +52,6 @@ profilePopupOpen.addEventListener("click", () => {
   initializePopupInput(profilePopupUserName, userName.textContent);
   initializePopupInput(profilePopupUserInfo, userInfo.textContent);
   openPopup(profilePopupElement);
-  enableValidation(userFormValidationConfig);
 });
 profilePopupClose.addEventListener("click", () => {
   closePopup(profilePopupElement);
@@ -76,7 +75,6 @@ placePopupOpen.addEventListener("click", () => {
   initializePopupInput(placePopupPlaceName, "");
   initializePopupInput(placePopupPlaceLink, "");
   openPopup(placePopupElement);
-  enableValidation(placeFormValidationConfig);
 });
 placePopupClose.addEventListener("click", () => {
   closePopup(placePopupElement);
@@ -106,3 +104,5 @@ previewPopupElement.addEventListener("mousedown", evt => {
 initialCards.forEach(
   card => renderCard(createCard(card), gallery)
 );
+enableValidation(userFormValidationConfig);
+enableValidation(placeFormValidationConfig);
