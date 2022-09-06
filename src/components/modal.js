@@ -68,8 +68,8 @@ function closePopupOnClick(popupElement) {
  * @param {object} evt - keyboard event
  */
 function closePopupOnEscape(evt) {
-  const currentOpenedPopup = document.querySelector(".popup_opened");
-  if (evt.key.toLowerCase() === "escape" && currentOpenedPopup) {
+  if (evt.key && evt.key === "Escape") {
+    const currentOpenedPopup = document.querySelector(".popup_opened");
     currentOpenedPopup.classList.remove("popup_opened");
   }
 }
