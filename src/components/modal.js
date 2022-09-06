@@ -75,12 +75,14 @@ function closePopupOnEscape(evt) {
 }
 
 /**
- * function initializes value of passed input element with passed string
+ * function initializes value of passed input element with passed string,
+ * then function triggers input event to trigger validation process
  * @param {object} popupInput - input element to initialize
  * @param {string} inputValue - string which will be used for initialization
  */
 function initializePopupInput(popupInput, inputValue) {
   popupInput.value = inputValue;
+  popupInput.dispatchEvent(new Event("input", {bobbles: true}));
 }
 
 /**
