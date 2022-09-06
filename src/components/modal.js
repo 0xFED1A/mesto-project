@@ -70,7 +70,7 @@ function closePopupOnClick(popupElement) {
 function closePopupOnEscape(evt) {
   if (evt.key && evt.key === "Escape") {
     const currentOpenedPopup = document.querySelector(".popup_opened");
-    currentOpenedPopup.classList.remove("popup_opened");
+    closePopup(currentOpenedPopup);
   }
 }
 
