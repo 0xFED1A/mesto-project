@@ -192,8 +192,27 @@ avatarPopupElement.addEventListener("mousedown", evt => {
 
 
 // main logic
-initialCards.forEach(
-  card => renderCard(createCard(card), gallery)
-);
+getUserInfoFromServer()
+  .then(serverData => {
+    userName.textContent = serverData.name;
+    userInfo.textContent = serverData.about;
+    userAvatar.setAttribute("src", serverData.avatar);
+  })
+  .catch(() => console.log("Запрос получения информации о пользователе удался"));
+
+getCardsFromServer()
+  .then(cards => {
+    getUserInfoFromServer()
+      .then(userData => {
+        cards = cards.reverse();
+        cards.forEach(card => {
+          card.userId = userData._id;
+          renderCard(createCard(card),gallery);
+        });
+      }).catch(() => console.log("Запрос получения информации о пользователе удался"));
+  })
+  .catch(() => console.log("Запрос получения массива карточек не удался"));
+
 enableValidation(userFormValidationConfig);
 enableValidation(placeFormValidationConfig);
+enableValidation(avatarFormValidationConfig);
