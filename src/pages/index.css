@@ -54,6 +54,7 @@
 
 /* import profile */
 @import url("../blocks/profile/__user-data-container/profile__user-data-container.css");
+@import url("../blocks/profile/__avatar/profile__avatar.css");
 @import url("../blocks/profile/__info/profile__info.css");
 @import url("../blocks/profile/__image/profile__image.css");
 @import url("../blocks/profile/__user-name/profile__user-name.css");
