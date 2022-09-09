@@ -89,8 +89,34 @@ function getCardsFromServer() {
   }); 
 }
 
+/**
+ * function sends new card data to server and returns promise
+ * with new card data
+ * @param {string} cardName - card name
+ * @param {string} cardLink - URL to card image
+ * @returns {object} - promise with card data
+ */
+function sendCardToSever(cardName, cardLink) {
+  return fetch(
+    generateFullURL(cardsPath),
+    {
+      method: "POST",
+      headers: {authorization: userToken, 'Content-Type': 'application/json'},
+      body: JSON.stringify({name: cardName, link: cardLink})
+    }
+  )
+  .then(result => {
+    if (result.ok) {
+      return result.json();
+    } else {
+      return Promise.reject(`Ошибка: ${result.status}`);
+    }
+  }); 
+}
+
 export {
   getUserInfoFromServer,
   sendUserInfoToServer,
   getCardsFromServer,
+  sendCardToSever,
 };
