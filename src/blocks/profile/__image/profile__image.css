@@ -1,6 +1,11 @@
 /* rules for profile__image element */
 
 .profile__image {
+  width: 120px;
+  height: 120px;
+
   object-fit: contain;
   object-position: center center;
+
+  border-radius: 100%;
 }
