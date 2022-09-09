@@ -116,12 +116,29 @@ placePopupClose.addEventListener("click", () => {
 });
 placePopupForm.addEventListener("submit", event => {
   event.preventDefault();
-  const newCard =
-    createCard({name: placePopupPlaceName.value, link: placePopupPlaceLink.value});
-  renderCard(newCard, gallery);
-});
-placePopupUploadButton.addEventListener("click", () => {
-  closePopup(placePopupElement);
+  let saveStatus = "";
+  setTextContent(placePopupUploadButton, "Сохранение...");
+  sendCardToSever(placePopupPlaceName.value, placePopupPlaceLink.value)
+    .then(cardData => {
+      getUserInfoFromServer().
+        then(userData => {
+          cardData.userId = userData._id;
+          const newCard = createCard(cardData);
+          renderCard(newCard, gallery);
+          saveStatus = "Сохранено";
+        })
+        .catch(() => 
+          console.log("Запрос получения информации о пользователе удался")
+        );
+    })
+    .catch(() => {
+      saveStatus = "Ошибка";
+      console.log("Запрос на создание карточки не удался");
+    })
+    .finally(() => {
+      setTextContent(placePopupUploadButton, saveStatus);
+      closePopup(placePopupElement);
+    });
 });
 placePopupElement.addEventListener("mousedown", evt => {
   closePopupOnClick(evt.target);
