@@ -1,6 +1,9 @@
-// data for intial cards
+// card
 
-import {gallery} from "./utils";
+import { gallery } from "./utils";
+
+import { sendLikeInfoToServer } from "./api";
+
 import {
   initializePopupImage,
   previewPopupImage,
