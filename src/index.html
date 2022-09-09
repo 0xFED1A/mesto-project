@@ -36,6 +36,43 @@
         </figure>
       </div>
     </div>
+    <div class="popup page__popup" id="popup_avatar_edit">
+      <div class="popup__container">
+        <button
+          class="button popup__button-close button_visual_image"
+          type="submit"
+        >
+          Закрыть форму редактирования аватара
+        </button>
+        <form
+          class="form popup__form"
+          name="user_avtar"
+          id="user_avatar"
+          novalidate
+        >
+          <h2 class="form__heading">Обновить аватар</h2>
+          <fieldset class="form__input-group">
+            <input
+              class="form__input form__input_avatar_link"
+              name="avatar_link"
+              type="url"
+              placeholder="Ссылка на аватар"
+              value=""
+              spellcheck="false"
+              required
+            >
+            <span class="form__input-error-msg avatar_link-error"></span>
+            <button
+              class="button popup__button-save"
+              type="submit"
+              name="avatar_save"
+            >
+              Сохранить
+            </button>
+          </fieldset>
+        </form>
+      </div>
+    </div>
     <div class="popup page__popup" id="popup_profile_edit">
       <div class="popup__container">
         <button
