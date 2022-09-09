@@ -150,9 +150,18 @@ const placeFormValidationConfig = {
   inputErrorClass: 'form__input_error',
   errorClass: 'form__input-error-msg_visible'
 };
+const avatarFormValidationConfig = {
+  formSelector: '#user_avatar',
+  inputSelector: '.form__input',
+  submitButtonSelector: '.popup__button-save',
+  inactiveButtonClass: 'popup__button-save_disabled',
+  inputErrorClass: 'form__input_error',
+  errorClass: 'form__input-error-msg_visible'
+};
 
 export {
   userFormValidationConfig,
   placeFormValidationConfig,
+  avatarFormValidationConfig,
   enableValidation
 };
