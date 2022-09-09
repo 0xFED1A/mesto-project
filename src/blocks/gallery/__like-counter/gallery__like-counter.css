@@ -1,0 +1,13 @@
+/* rules for gallery__like-counter element */
+
+.gallery__like-counter {
+  margin: 3px 0 0 0;
+
+  font-size: 13px;
+  line-height: 16px;
+  font-weight: 400;
+
+  color: #000;
+
+  display: block;
+}

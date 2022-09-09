@@ -1,0 +1,7 @@
+/* rules for gallery__item-like-block element */
+
+.gallery__item-like-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
