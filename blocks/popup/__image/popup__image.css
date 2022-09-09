@@ -1,8 +1,0 @@
-/* rules for popup__image element */
-
-.popup__image {
-  max-width: 75vw;
-  max-height: 75vh;
-
-  display: block;
-}

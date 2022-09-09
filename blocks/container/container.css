@@ -1,9 +1,0 @@
-/* rules for container block */
-
-.container {
-  max-width: 880px;
-
-  margin: 0 auto;
-
-  box-sizing: border-box;
-}

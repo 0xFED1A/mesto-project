@@ -1,9 +1,0 @@
-/* rules for button_visual_image modifier */
-
-.button_visual_image {
-  font-size: 0;
-  line-height: 0;
-
-  background-color: transparent;
-  color: transparent;
-}

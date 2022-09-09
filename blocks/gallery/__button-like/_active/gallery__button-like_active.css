@@ -1,6 +1,0 @@
-/* rules for gallery__button-like_active modifier */
-
-.gallery__button-like_active {
-  background-image: url("../../../../images/buttons/like/buttons_like_active.svg");
-  opacity: 1;
-}
