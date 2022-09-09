@@ -1,8 +1,8 @@
 "use strict";
 
+// imports
 import './pages/index.css';
 import {
-  initialCards,
   renderCard,
   createCard
 } from './components/card';
@@ -10,7 +10,10 @@ import {
 import {
   userName,
   userInfo,
-  gallery
+  userAvatar,
+  gallery,
+
+  setTextContent
 } from './components/utils';
 
 import {
@@ -33,6 +36,13 @@ import {
   previewPopupElement,
   previewPopupClose,
 
+  avatarPopupElement,
+  avatarPopupOpen,
+  avatarPopupClose,
+  avatarPopupForm,
+  avatarPopupImageLink,
+  avatarPopupUploadButton,
+
   initializePopupInput,
   openPopup,
   closePopup,
@@ -43,9 +53,18 @@ import {
 import {
   userFormValidationConfig,
   placeFormValidationConfig,
+  avatarFormValidationConfig,
 
   enableValidation
 } from './components/validate';
+
+import {
+  getUserInfoFromServer,
+  sendUserInfoToServer,
+  getCardsFromServer,
+  sendCardToSever,
+  sendAvatarToServer
+} from './components/api';
 
 // profile popup listeners
 profilePopupOpen.addEventListener("click", () => {
