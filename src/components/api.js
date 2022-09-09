@@ -66,7 +66,31 @@ function sendUserInfoToServer(userName, userInfo) {
     }
   }); 
 }
+
+/**
+ * function retrieves array of cards from server and 
+ * returns promise with it
+ * @returns {object} - promise with user array of cards
+ */
+function getCardsFromServer() {
+  return fetch(
+    generateFullURL(cardsPath),
+    {
+      method: "GET",
+      headers: {authorization: userToken}
+    }
+  )
+  .then(result => {
+    if (result.ok) {
+      return result.json();
+    } else {
+      return Promise.reject(`Ошибка: ${result.status}`);
+    }
+  }); 
+}
+
 export {
   getUserInfoFromServer,
   sendUserInfoToServer,
+  getCardsFromServer,
 };
