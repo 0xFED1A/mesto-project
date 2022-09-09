@@ -60,9 +60,13 @@ function createCard(cardData) {
   });
 
   const newCardRemoveButton = newCard.querySelector(".gallery__button-delete");
-  newCardRemoveButton.addEventListener("click", () => {
-    newCard.remove();
-  });
+  cardData.owner._id !== cardData.userId ?
+    newCardRemoveButton.remove() :
+    newCardRemoveButton.addEventListener("click", () => {
+      deleteCardFromServer(cardData._id)
+        .catch(() => console.log("Запрос удаление карточки не удался"));
+      newCard.remove();
+    });
   return newCard;
 }
 
@@ -75,4 +79,4 @@ function renderCard(card, cardContainer) {
   cardContainer.prepend(card);
 }
 
-export {initialCards, createCard, renderCard};
+export {createCard, renderCard};
