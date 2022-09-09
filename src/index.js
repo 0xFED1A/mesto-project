@@ -109,6 +109,7 @@ profilePopupElement.addEventListener("mousedown", evt => {
 placePopupOpen.addEventListener("click", () => {
   initializePopupInput(placePopupPlaceName, "");
   initializePopupInput(placePopupPlaceLink, "");
+  setTextContent(placePopupUploadButton, "Сохранить");
   openPopup(placePopupElement);
 });
 placePopupClose.addEventListener("click", () => {
@@ -151,6 +152,44 @@ previewPopupClose.addEventListener("click", () => {
 previewPopupElement.addEventListener("mousedown", evt => {
   closePopupOnClick(evt.target);
 });
+
+//avatar popup listeners
+avatarPopupOpen.addEventListener("click", () => {
+  getUserInfoFromServer()
+    .then(serverData => {
+      initializePopupInput(avatarPopupImageLink, serverData.avatar);
+      setTextContent(avatarPopupUploadButton, "Сохранить");
+      openPopup(avatarPopupElement);
+    })
+    .catch(() => 
+      console.log("Запрос получения информации о пользователе удался")
+    );
+});
+avatarPopupClose.addEventListener("click", () => {
+  closePopup(avatarPopupElement);
+});
+avatarPopupForm.addEventListener("submit", event => {
+  event.preventDefault();
+  let saveStatus = "";
+  setTextContent(avatarPopupUploadButton, "Сохраненине...");
+  sendAvatarToServer(avatarPopupImageLink.value)
+    .then(serverData => {
+      userAvatar.src = serverData.avatar;
+      saveStatus = "Сохранено";
+    })
+    .catch(() =>  {
+      saveStatus = "Ошибка";
+      console.log("Запрос на отправку аватара пользователя не удался");
+    })
+    .finally(() => {
+      setTextContent(avatarPopupUploadButton, saveStatus);
+      closePopup(avatarPopupElement);
+    });
+});
+avatarPopupElement.addEventListener("mousedown", evt => {
+  closePopupOnClick(evt.target);
+});
+
 
 // main logic
 initialCards.forEach(
