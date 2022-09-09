@@ -159,6 +159,30 @@ function sendLikeInfoToServer(cardId, isLiked) {
     }
   }); 
 }
+
+/**
+ * function sends link to user avatar to server
+ * @param {string} avatarLink - link to new avatar
+ * @returns {object} - promise with result
+ */
+function sendAvatarToServer(avatarLink) {
+  return fetch(
+    generateFullURL(avatarPath),
+    {
+      method: "PATCH",
+      headers: {authorization: userToken, 'Content-Type': 'application/json'},
+      body: JSON.stringify({avatar: avatarLink})
+    }
+  )
+  .then(result => {
+    if (result.ok) {
+      return result.json();
+    } else {
+      return Promise.reject(`Ошибка: ${result.status}`);
+    }
+  }); 
+}
+
 export {
   getUserInfoFromServer,
   sendUserInfoToServer,
@@ -166,4 +190,5 @@ export {
   sendCardToSever,
   deleteCardFromServer,
   sendLikeInfoToServer,
+  sendAvatarToServer
 };
