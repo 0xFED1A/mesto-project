@@ -1,6 +1,6 @@
-// profile popup
+// modal
 
-import {page} from "./utils";
+import { page } from "./utils";
 
 const profilePopupElement = page.querySelector("#popup_profile_edit");
 const profilePopupOpen = 
@@ -31,6 +31,15 @@ const previewPopupImage =
   previewPopupElement.querySelector(".popup__image");
 const previewPopupCaption =
   previewPopupElement.querySelector(".popup__item-info");
+
+// avatar popup
+const avatarPopupElement = page.querySelector("#popup_avatar_edit");
+const avatarPopupOpen = page.querySelector(".profile__avatar");
+const avatarPopupClose =
+  avatarPopupElement.querySelector(".popup__button-close");
+const avatarPopupForm = document.forms.user_avatar;
+const avatarPopupImageLink = document.forms.user_avatar.avatar_link;
+const avatarPopupUploadButton = document.forms.user_avatar.avatar_save;
 
 // popup functions
 /**
@@ -133,6 +142,13 @@ export {
 
   previewPopupElement,
   previewPopupClose,
+
+  avatarPopupElement,
+  avatarPopupOpen,
+  avatarPopupClose,
+  avatarPopupForm,
+  avatarPopupImageLink,
+  avatarPopupUploadButton,
 
   initializePopupInput,
   initializePopupImage,
