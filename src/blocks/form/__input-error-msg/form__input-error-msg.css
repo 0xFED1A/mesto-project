@@ -12,6 +12,8 @@
 
   visibility: hidden;
 
+  cursor: default;
+
   display: block;
 }
 
