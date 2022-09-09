@@ -82,11 +82,22 @@ profilePopupClose.addEventListener("click", () => {
 });
 profilePopupForm.addEventListener("submit", event => {
   event.preventDefault();
-  savePopupInput(profilePopupUserName, userName);
-  savePopupInput(profilePopupUserInfo, userInfo);
-});
-profilePopupSaveButton.addEventListener("click", () => {
-  closePopup(profilePopupElement);
+  let saveStatus = "";
+  setTextContent(profilePopupSaveButton, "Сохранение...");
+  sendUserInfoToServer(profilePopupUserName.value, profilePopupUserInfo.value)
+    .then(() => {
+      savePopupInput(profilePopupUserName, userName);
+      savePopupInput(profilePopupUserInfo, userInfo);
+      saveStatus = "Сохранено";
+    })
+    .catch(() => {
+      saveStatus = "Ошибка";
+      console.log("Запрос на сохранение информации о пользователе не удался");
+    })
+    .finally(() => {
+      setTextContent(profilePopupSaveButton, saveStatus);
+      closePopup(profilePopupElement);
+    });
 });
 // mousedown used instead of click to prevent accidental popup
 // close while selecting text with mouse inside field
