@@ -135,10 +135,35 @@ function deleteCardFromServer(cardId) {
     }
   }); 
 }
+
+/**
+ * function sends user like to server for particular card
+ * @param {string} cardId - card to like
+ * @param {boolean} isLiked - true if liked, false if unliked
+ * @returns {object} - promise with result
+ */
+function sendLikeInfoToServer(cardId, isLiked) {
+  const like = isLiked ? "PUT" : "DELETE";
+  return fetch(
+    generateFullURL(likesPath) + "/" + cardId,
+    {
+      method: like,
+      headers: {authorization: userToken}
+    }
+  )
+  .then(result => {
+    if (result.ok) {
+      return result.json();
+    } else {
+      return Promise.reject(`Ошибка: ${result.status}`);
+    }
+  }); 
+}
 export {
   getUserInfoFromServer,
   sendUserInfoToServer,
   getCardsFromServer,
   sendCardToSever,
   deleteCardFromServer,
+  sendLikeInfoToServer,
 };
