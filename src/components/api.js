@@ -1,5 +1,5 @@
 // api
-//
+
 import {
   userCohort,
   userToken,
@@ -41,6 +41,32 @@ function getUserInfoFromServer() {
     }
   }); 
 }
+
+/**
+ * function sends user information to server and 
+ * returns promise with new user info
+ * @param {string} userName - username
+ * @param {string} userInfo - brief user description
+ * @returns {object} - promise with user info
+ */
+function sendUserInfoToServer(userName, userInfo) {
+  return fetch(
+    generateFullURL(userPath),
+    {
+      method: "PATCH",
+      headers: {authorization: userToken, 'Content-Type': 'application/json'},
+      body: JSON.stringify({name: userName, about: userInfo})
+    }
+  )
+  .then(result => {
+    if (result.ok) {
+      return result.json();
+    } else {
+      return Promise.reject(`Ошибка: ${result.status}`);
+    }
+  }); 
+}
 export {
   getUserInfoFromServer,
+  sendUserInfoToServer,
 };
