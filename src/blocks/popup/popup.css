@@ -8,10 +8,9 @@
 
   opacity: 0;
   visibility: hidden;
-
-  transition: visibility 0.22s, opacity 0.22s linear;
-
   display: flex;
 
-  z-index: 3;
+  transition: visibility 0.22s, opacity 0.22s linear, z-index 0.22s;
+
+  z-index: 0;
 }
