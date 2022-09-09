@@ -114,9 +114,31 @@ function sendCardToSever(cardName, cardLink) {
   }); 
 }
 
+/**
+ * function sends delete request to server with selected card id
+ * @param {string} cardId - card to delete
+ * @returns {object} - promise with result
+ */
+function deleteCardFromServer(cardId) {
+  return fetch(
+    generateFullURL(cardsPath) + "/" + cardId,
+    {
+      method: "DELETE",
+      headers: {authorization: userToken}
+    }
+  )
+  .then(result => {
+    if (result.ok) {
+      return result.json();
+    } else {
+      return Promise.reject(`Ошибка: ${result.status}`);
+    }
+  }); 
+}
 export {
   getUserInfoFromServer,
   sendUserInfoToServer,
   getCardsFromServer,
   sendCardToSever,
+  deleteCardFromServer,
 };
