@@ -77,21 +77,18 @@ profilePopupClose.addEventListener("click", () => {
 });
 profilePopupForm.addEventListener("submit", event => {
   event.preventDefault();
-  let saveStatus = "";
   setTextContent(profilePopupSaveButton, "Сохранение...");
   sendUserInfoToServer(profilePopupUserName.value, profilePopupUserInfo.value)
     .then(() => {
       savePopupInput(profilePopupUserName, userName);
       savePopupInput(profilePopupUserInfo, userInfo);
-      saveStatus = "Сохранено";
+      closePopup(profilePopupElement);
     })
     .catch(() => {
-      saveStatus = "Ошибка";
       console.log("Запрос на сохранение информации о пользователе не удался");
     })
     .finally(() => {
-      setTextContent(profilePopupSaveButton, saveStatus);
-      closePopup(profilePopupElement);
+      setTextContent(profilePopupSaveButton, "Сохранить");
     });
 });
 // mousedown used instead of click to prevent accidental popup
