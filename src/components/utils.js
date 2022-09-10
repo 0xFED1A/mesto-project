@@ -8,11 +8,16 @@ const userInfo = profile.querySelector(".profile__user-description");
 const userAvatar = profile.querySelector(".profile__image");
 const gallery = page.querySelector(".gallery__items");
 
-// connection variables
-const userCohort = "plus-cohort-14/";
-const userToken = "97490d78-0aeb-4bf4-9e55-1aeead76a69d";
-const serverAddress = "https://nomoreparties.co/v1/";
+// connection configs
+const config = {
+  baseUrl: "https://nomoreparties.co/v1/plus-cohort-14/",
+  headers: {
+    authorization: "97490d78-0aeb-4bf4-9e55-1aeead76a69d",
+    "Content-Type": "application/json"
+  }
+};
 
+// connection paths
 const userPath = "users/me";
 const cardsPath = "cards";
 const likesPath = "cards/likes";
@@ -34,9 +39,7 @@ export {
   userAvatar,
   gallery,
 
-  userCohort,
-  userToken,
-  serverAddress,
+  config,
   userPath,
   cardsPath,
   likesPath,

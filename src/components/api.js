@@ -1,9 +1,7 @@
 // api
 
 import {
-  userCohort,
-  userToken,
-  serverAddress,
+  config,
   userPath,
   cardsPath,
   likesPath,
@@ -11,13 +9,16 @@ import {
 } from "./utils";
 
 /**
- * function generates full URL constructing it
- * with serverAddress, userCohort, and passed path
- * @param {string} path - path required for URL constructing
- * @returns {string} - constructed path
+ * function parses response from server
+ * @param {object} response - response from server
+ * @param {object} - promise
  */
-function generateFullURL(path) {
-  return serverAddress + userCohort + path;
+function getResponseData(response) {
+  if (response.ok) {
+    return response.json();
+  } else {
+    return Promise.reject(`Ошибка: ${response.status}`);
+  }
 }
 
 /**
@@ -27,19 +28,13 @@ function generateFullURL(path) {
  */
 function getUserInfoFromServer() {
   return fetch(
-    generateFullURL(userPath),
+    config.baseUrl + userPath,
     {
       method: "GET",
-      headers: {authorization: userToken},
+      headers: config.headers
     }
   )
-  .then(result => {
-    if (result.ok) {
-      return result.json();
-    } else {
-      return Promise.reject(`Ошибка: ${result.status}`);
-    }
-  }); 
+  .then(response => getResponseData(response));
 }
 
 /**
@@ -51,20 +46,14 @@ function getUserInfoFromServer() {
  */
 function sendUserInfoToServer(userName, userInfo) {
   return fetch(
-    generateFullURL(userPath),
+    config.baseUrl + userPath,
     {
       method: "PATCH",
-      headers: {authorization: userToken, 'Content-Type': 'application/json'},
+      headers: config.headers,
       body: JSON.stringify({name: userName, about: userInfo})
     }
   )
-  .then(result => {
-    if (result.ok) {
-      return result.json();
-    } else {
-      return Promise.reject(`Ошибка: ${result.status}`);
-    }
-  }); 
+  .then(response => getResponseData(response));
 }
 
 /**
@@ -74,19 +63,13 @@ function sendUserInfoToServer(userName, userInfo) {
  */
 function getCardsFromServer() {
   return fetch(
-    generateFullURL(cardsPath),
+    config.baseUrl + cardsPath,
     {
       method: "GET",
-      headers: {authorization: userToken}
+      headers: config.headers
     }
   )
-  .then(result => {
-    if (result.ok) {
-      return result.json();
-    } else {
-      return Promise.reject(`Ошибка: ${result.status}`);
-    }
-  }); 
+  .then(response => getResponseData(response));
 }
 
 /**
@@ -98,20 +81,14 @@ function getCardsFromServer() {
  */
 function sendCardToSever(cardName, cardLink) {
   return fetch(
-    generateFullURL(cardsPath),
+    config.baseUrl + cardsPath,
     {
       method: "POST",
-      headers: {authorization: userToken, 'Content-Type': 'application/json'},
+      headers: config.headers,
       body: JSON.stringify({name: cardName, link: cardLink})
     }
   )
-  .then(result => {
-    if (result.ok) {
-      return result.json();
-    } else {
-      return Promise.reject(`Ошибка: ${result.status}`);
-    }
-  }); 
+  .then(response => getResponseData(response));
 }
 
 /**
@@ -121,19 +98,13 @@ function sendCardToSever(cardName, cardLink) {
  */
 function deleteCardFromServer(cardId) {
   return fetch(
-    generateFullURL(cardsPath) + "/" + cardId,
+    config.baseUrl + cardsPath + "/" + cardId,
     {
       method: "DELETE",
-      headers: {authorization: userToken}
+      headers: config.headers
     }
   )
-  .then(result => {
-    if (result.ok) {
-      return result.json();
-    } else {
-      return Promise.reject(`Ошибка: ${result.status}`);
-    }
-  }); 
+  .then(response => getResponseData(response));
 }
 
 /**
@@ -145,19 +116,13 @@ function deleteCardFromServer(cardId) {
 function sendLikeInfoToServer(cardId, isLiked) {
   const like = isLiked ? "PUT" : "DELETE";
   return fetch(
-    generateFullURL(likesPath) + "/" + cardId,
+    config.baseUrl + likesPath + "/" + cardId,
     {
       method: like,
-      headers: {authorization: userToken}
+      headers: config.headers
     }
   )
-  .then(result => {
-    if (result.ok) {
-      return result.json();
-    } else {
-      return Promise.reject(`Ошибка: ${result.status}`);
-    }
-  }); 
+  .then(response => getResponseData(response));
 }
 
 /**
@@ -167,20 +132,14 @@ function sendLikeInfoToServer(cardId, isLiked) {
  */
 function sendAvatarToServer(avatarLink) {
   return fetch(
-    generateFullURL(avatarPath),
+    config.baseUrl + avatarPath,
     {
       method: "PATCH",
-      headers: {authorization: userToken, 'Content-Type': 'application/json'},
+      headers: config.headers,
       body: JSON.stringify({avatar: avatarLink})
     }
   )
-  .then(result => {
-    if (result.ok) {
-      return result.json();
-    } else {
-      return Promise.reject(`Ошибка: ${result.status}`);
-    }
-  }); 
+  .then(response => getResponseData(response));
 }
 
 export {
