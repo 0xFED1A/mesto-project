@@ -22,11 +22,9 @@
 .popup__form{background-color:#fff;border-radius:10px;position:relative;width:430px}@media screen and (max-width:928px){.popup__form{width:282px}}
 .popup_opened{opacity:1;visibility:visible;z-index:3}
 .popup__container{display:flex;position:relative}
-.popup__container_type_messagebox{background-color:#fff;border-radius:10px;display:block;position:relative;width:430px}@media screen and (max-width:928px){.popup__container_type_messagebox{width:288px}}
 .popup__button-close{background:0 0/cover url(b380cda2c57ff8cd6d80.svg);height:32px;position:absolute;right:-39px;top:-42px;transition:opacity .15s ease;width:32px}.popup__button-close:hover{opacity:.6}@media screen and (max-width:928px){.popup__button-close{height:20px;right:0;top:-36px;width:20px}}
 .popup__button-save{background-color:#000;border-radius:2px;box-sizing:border-box;color:#fff;font-size:18px;height:50px;line-height:22px;margin:28px 0 37px;padding:14px 124px 14px 125px;transition:opacity .15s ease;width:358px}.popup__button-save:hover{opacity:.8}@media screen and (max-width:928px){.popup__button-save{font-size:14px;height:46px;line-height:17px;margin:45px 0 25px;padding:14px 82px;width:238px}}
 .popup__button-save_disabled{background-color:transparent;border:1px solid rgba(0,0,0,.2);color:rgba(0,0,0,.2);cursor:default}.popup__button-save_disabled:hover{opacity:1}
-.popup__button-save_type_confirm-delete{margin:38px 0 36px 36px}@media screen and (max-width:928px){.popup__button-save_type_confirm-delete{margin:25px 0 25px 25px}}
 .popup__figure{margin:0}
 .popup__image{display:block;max-height:75vh;max-width:75vw}
 .popup__item-info{font-size:12px;font-weight:400;line-height:15px;margin:10px 0 0}
