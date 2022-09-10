@@ -68,14 +68,9 @@ import {
 
 // profile popup listeners
 profilePopupOpen.addEventListener("click", () => {
-  getUserInfoFromServer()
-    .then(serverData => {
-      initializePopupInput(profilePopupUserName, serverData.name);
-      initializePopupInput(profilePopupUserInfo, serverData.about);
-      setTextContent(profilePopupSaveButton, "Сохранить");
-      openPopup(profilePopupElement);
-    })
-  .catch(() => console.log("Запрос получения информации о пользователе удался"));
+  initializePopupInput(profilePopupUserName, userName.textContent);
+  initializePopupInput(profilePopupUserInfo, userInfo.textContent);
+  openPopup(profilePopupElement);
 });
 profilePopupClose.addEventListener("click", () => {
   closePopup(profilePopupElement);
