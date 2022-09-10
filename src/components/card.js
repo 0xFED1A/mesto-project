@@ -64,8 +64,8 @@ function createCard(cardData) {
     newCardRemoveButton.remove() :
     newCardRemoveButton.addEventListener("click", () => {
       deleteCardFromServer(cardData._id)
+        .then(() => newCard.remove())
         .catch(() => console.log("Запрос удаление карточки не удался"));
-      newCard.remove();
     });
   return newCard;
 }
