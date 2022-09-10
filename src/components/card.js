@@ -1,6 +1,6 @@
 // card
 
-import { gallery } from "./utils";
+import { gallery, userData } from "./utils";
 
 import { sendLikeInfoToServer } from "./api";
 
@@ -43,9 +43,13 @@ function createCard(cardData) {
   const newCardLikeButton = newCard.querySelector(".gallery__button-like");
   const newCardLikesCounter = newCard.querySelector(".gallery__like-counter");
   // check if user allreayd liked this card
-  cardData.likes.some(liker => liker._id == cardData.userId) ?
-    newCardLikeButton.classList.add("gallery__button-like_active") :
-    newCardLikeButton.classList.remove("gallery__button-like_active");
+  userData
+    .then(serverData => {
+      cardData.likes.some(liker => liker._id == serverData._id) ?
+        newCardLikeButton.classList.add("gallery__button-like_active") :
+        newCardLikeButton.classList.remove("gallery__button-like_active");
+    })
+    .catch(() => console.log("Не удался запрос к информации о пользователе"));
 
   newCardLikesCounter.textContent = cardData.likes.length;
   newCardLikeButton.addEventListener("click", () => {
@@ -60,13 +64,15 @@ function createCard(cardData) {
   });
 
   const newCardRemoveButton = newCard.querySelector(".gallery__button-delete");
-  cardData.owner._id !== cardData.userId ?
-    newCardRemoveButton.remove() :
-    newCardRemoveButton.addEventListener("click", () => {
-      deleteCardFromServer(cardData._id)
-        .then(() => newCard.remove())
-        .catch(() => console.log("Запрос удаление карточки не удался"));
-    });
+  userData.then(serverData => {
+    cardData.owner._id !== serverData._id ?
+      newCardRemoveButton.remove() :
+      newCardRemoveButton.addEventListener("click", () => {
+        deleteCardFromServer(cardData._id)
+          .then(() => newCard.remove())
+          .catch(() => console.log("Запрос удаление карточки не удался"));
+      });
+  });
   return newCard;
 }
 

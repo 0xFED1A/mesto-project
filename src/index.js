@@ -13,6 +13,9 @@ import {
   userAvatar,
   gallery,
 
+  userData,
+  cardsData,
+
   setTextContent
 } from './components/utils';
 
@@ -59,9 +62,7 @@ import {
 } from './components/validate';
 
 import {
-  getUserInfoFromServer,
   sendUserInfoToServer,
-  getCardsFromServer,
   sendCardToSever,
   sendAvatarToServer
 } from './components/api';
@@ -101,7 +102,6 @@ profilePopupElement.addEventListener("mousedown", evt => {
 placePopupOpen.addEventListener("click", () => {
   initializePopupInput(placePopupPlaceName, "");
   initializePopupInput(placePopupPlaceLink, "");
-  setTextContent(placePopupUploadButton, "Сохранить");
   openPopup(placePopupElement);
 });
 placePopupClose.addEventListener("click", () => {
@@ -109,28 +109,18 @@ placePopupClose.addEventListener("click", () => {
 });
 placePopupForm.addEventListener("submit", event => {
   event.preventDefault();
-  let saveStatus = "";
-  setTextContent(placePopupUploadButton, "Сохранение...");
+  setTextContent(placePopupUploadButton, "Создание...");
   sendCardToSever(placePopupPlaceName.value, placePopupPlaceLink.value)
     .then(cardData => {
-      getUserInfoFromServer().
-        then(userData => {
-          cardData.userId = userData._id;
-          const newCard = createCard(cardData);
-          renderCard(newCard, gallery);
-          saveStatus = "Сохранено";
-        })
-        .catch(() => 
-          console.log("Запрос получения информации о пользователе удался")
-        );
+      const newCard = createCard(cardData);
+      renderCard(newCard, gallery);
+      closePopup(placePopupElement);
     })
     .catch(() => {
-      saveStatus = "Ошибка";
       console.log("Запрос на создание карточки не удался");
     })
     .finally(() => {
-      setTextContent(placePopupUploadButton, saveStatus);
-      closePopup(placePopupElement);
+      setTextContent(placePopupUploadButton, "Создать");
     });
 });
 placePopupElement.addEventListener("mousedown", evt => {
@@ -147,63 +137,52 @@ previewPopupElement.addEventListener("mousedown", evt => {
 
 //avatar popup listeners
 avatarPopupOpen.addEventListener("click", () => {
-  getUserInfoFromServer()
-    .then(serverData => {
-      initializePopupInput(avatarPopupImageLink, serverData.avatar);
-      setTextContent(avatarPopupUploadButton, "Сохранить");
-      openPopup(avatarPopupElement);
-    })
-    .catch(() => 
-      console.log("Запрос получения информации о пользователе удался")
-    );
+  initializePopupInput(avatarPopupImageLink, "");
+  openPopup(avatarPopupElement);
 });
 avatarPopupClose.addEventListener("click", () => {
   closePopup(avatarPopupElement);
 });
 avatarPopupForm.addEventListener("submit", event => {
   event.preventDefault();
-  let saveStatus = "";
   setTextContent(avatarPopupUploadButton, "Сохраненине...");
   sendAvatarToServer(avatarPopupImageLink.value)
     .then(serverData => {
       userAvatar.src = serverData.avatar;
-      saveStatus = "Сохранено";
+      closePopup(avatarPopupElement);
     })
     .catch(() =>  {
-      saveStatus = "Ошибка";
       console.log("Запрос на отправку аватара пользователя не удался");
     })
     .finally(() => {
-      setTextContent(avatarPopupUploadButton, saveStatus);
-      closePopup(avatarPopupElement);
+      setTextContent(avatarPopupUploadButton, "Сохранить");
     });
 });
 avatarPopupElement.addEventListener("mousedown", evt => {
   closePopupOnClick(evt.target);
 });
 
-
 // main logic
-getUserInfoFromServer()
+userData
   .then(serverData => {
     userName.textContent = serverData.name;
     userInfo.textContent = serverData.about;
-    userAvatar.setAttribute("src", serverData.avatar);
+    userAvatar.src = serverData.avatar;
   })
-  .catch(() => console.log("Запрос получения информации о пользователе удался"));
+  .catch(() => console.log("Запрос на получение данных о пользователе не удался"));
 
-getCardsFromServer()
-  .then(cards => {
-    getUserInfoFromServer()
-      .then(userData => {
-        cards = cards.reverse();
-        cards.forEach(card => {
-          card.userId = userData._id;
-          renderCard(createCard(card),gallery);
-        });
-      }).catch(() => console.log("Запрос получения информации о пользователе удался"));
+Promise.all([
+  userData,
+  cardsData
+])
+  .then(serverData => {
+    const cards = serverData[1].reverse();
+    cards.forEach(card => {
+      card.userId = serverData[0]._id;
+      renderCard(createCard(card), gallery);
+    });
   })
-  .catch(() => console.log("Запрос получения массива карточек не удался"));
+.catch(() => console.log("Запрос на получение данных о карточках не удался"));
 
 enableValidation(userFormValidationConfig);
 enableValidation(placeFormValidationConfig);

@@ -1,5 +1,7 @@
 // utils
 
+import { getUserInfoFromServer, getCardsFromServer } from "./api";
+
 // document variables
 const page = document.querySelector(".page");
 const profile = page.querySelector(".profile");
@@ -23,6 +25,10 @@ const cardsPath = "cards";
 const likesPath = "cards/likes";
 const avatarPath = "users/me/avatar";
 
+// promises
+const userData = getUserInfoFromServer();
+const cardsData = getCardsFromServer();
+
 /** function sets text content of passed elemend with passed text
  * @param {object} element - object to set text
  * @param {string} text - text to set
@@ -44,6 +50,9 @@ export {
   cardsPath,
   likesPath,
   avatarPath,
+
+  userData,
+  cardsData,
 
   setTextContent
 };
