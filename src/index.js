@@ -36,6 +36,10 @@ import {
   previewPopupElement,
   previewPopupClose,
 
+  confirmPopupElement,
+  confirmPopupClose,
+  confirmPopupButton,
+
   avatarPopupElement,
   avatarPopupOpen,
   avatarPopupClose,
@@ -150,6 +154,14 @@ previewPopupClose.addEventListener("click", () => {
   closePopup(previewPopupElement);
 });
 previewPopupElement.addEventListener("mousedown", evt => {
+  closePopupOnClick(evt.target);
+});
+
+// confirm popup listeners
+confirmPopupClose.addEventListener("click", event => {
+  closePopup(confirmPopupElement);
+});
+confirmPopupElement.addEventListener("mousedown", evt => {
   closePopupOnClick(evt.target);
 });
 

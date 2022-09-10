@@ -1,0 +1,19 @@
+/* rules for popup__container_type_messagebox modifier */
+
+.popup__container_type_messagebox {
+  width: 430px;
+
+  border-radius: 10px;
+
+  background-color: #fff;
+
+  position: relative;
+
+  display: block;
+}
+
+@media screen and (max-width: 928px) {
+  .popup__container_type_messagebox {
+    width: 288px;
+  }
+}

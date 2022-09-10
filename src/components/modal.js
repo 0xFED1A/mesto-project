@@ -32,6 +32,12 @@ const previewPopupImage =
 const previewPopupCaption =
   previewPopupElement.querySelector(".popup__item-info");
 
+// confirm popup
+const confirmPopupElement = page.querySelector("#popup_confirm_delete");
+const confirmPopupClose = 
+  confirmPopupElement.querySelector(".popup__button-close");
+const confirmPopupButton = confirmPopupElement.querySelector(".popup__button-save");
+
 // avatar popup
 const avatarPopupElement = page.querySelector("#popup_avatar_edit");
 const avatarPopupOpen = page.querySelector(".profile__avatar");
@@ -142,6 +148,10 @@ export {
 
   previewPopupElement,
   previewPopupClose,
+
+  confirmPopupElement,
+  confirmPopupClose,
+  confirmPopupButton,
 
   avatarPopupElement,
   avatarPopupOpen,
