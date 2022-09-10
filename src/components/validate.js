@@ -100,7 +100,6 @@ function toggleButtonState(inputs, button, buttonClass) {
  *   errorClass - string with name of error span class
  */
 function setEventListeners(elems, classes) {
-  elems.form.addEventListener("submit", evt => evt.preventDefault());
   // reset span error on every popup open
   toggleButtonState(elems.inputs, elems.button, classes.buttonClass);
   elems.inputs.forEach(input => {
