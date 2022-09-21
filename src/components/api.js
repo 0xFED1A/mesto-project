@@ -1,3 +1,5 @@
+import { config } from "./utils.js";
+
 export default class Api {
   constructor({baseUrl, headers}) {
     this._baseUrl = baseUrl;
@@ -26,7 +28,10 @@ export default class Api {
       {
         method: "PATCH",
         headers: this._headers,
-        body: JSON.stringify({name: userName, about: userInfo})
+        body: JSON.stringify({
+          name: userName, 
+          about: userInfo
+        })
       }
     )
     .then(response => this._getResponseData(response));
@@ -47,12 +52,15 @@ export default class Api {
       {
         method: "POST",
         headers: this._headers,
-        body: JSON.stringify({name: cardName, link: cardLink})
+        body: JSON.stringify({
+          name: cardName, 
+          link: cardLink
+        })
       }
     )
     .then(response => this._getResponseData(response));
   }
-  deleteCardFromServer(cardId) {
+  deleteCardFromServer(cardId) { /**************** */
     return fetch(
       this._baseUrl + 'cards' + "/" + cardId,
       {
@@ -62,7 +70,7 @@ export default class Api {
     )
     .then(response => this._getResponseData(response));
   }
-  sendLikeInfoToServer(cardId, isLiked) {
+  sendLikeInfoToServer(cardId, isLiked) {/**************** */
     const like = isLiked ? "PUT" : "DELETE";
     return fetch(
       this._baseUrl + 'cards/likes' + "/" + cardId,
@@ -86,3 +94,14 @@ export default class Api {
   }
 
 }
+
+/*
+Api           [+]     Дима
+Card          [ ]     Дима
+FormValidator  [ ]     Оксана
+Section        [ ]
+Popup         [ ]     Федор
+PopupWithImage 
+PopupWithForm
+UserInfo
+*/
