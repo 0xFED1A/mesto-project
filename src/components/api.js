@@ -26,7 +26,7 @@ function getResponseData(response) {
  * returns promise with it
  * @returns {object} - promise with user info
  */
-function getUserInfoFromServer() {
+ function getUserInfoFromServer() {
   return fetch(
     config.baseUrl + userPath,
     {

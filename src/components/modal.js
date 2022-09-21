@@ -89,7 +89,10 @@ function closePopupOnEscape(evt) {
  * @param {object} popupInput - input element to initialize
  * @param {string} inputValue - string which will be used for initialization
  */
-function initializePopupInput(popupInput, inputValue) {
+
+//удалить:
+
+function initializePopupInput(popupInput, inputValue) { 
   popupInput.value = inputValue;
   popupInput.dispatchEvent(new Event("input", {bobbles: true}));
 }
