@@ -58,10 +58,10 @@ import {
   userFormValidationConfig,
   placeFormValidationConfig,
   avatarFormValidationConfig,*/
-  disableButton,
-  enableValidation
+  //disableButton,
+  //enableValidation
 } from './components/validate';
-
+import FormValidator  from "./components/validate.js";
 import {
   sendUserInfoToServer,
   sendCardToSever,
@@ -79,7 +79,18 @@ profilePopupClose.addEventListener("click", () => {
   closePopup(profilePopupElement);
 });
 
-
+const validationConfig = {
+  formSelector: '.popup',
+  formPopup: '.popup__form',
+  inputSelector: '.form__input',
+  submitButtonSelector: '.popup__button-save',
+  inactiveButtonClass: 'popup__button-save_disabled',
+  activeButtonClass: 'popup__button-save_active',
+  inputErrorClass: 'form__input_error',
+  errorClass: 'form__input-error-msg_visible',
+  //formButtonAvatar: 'formButtonAvatar',
+  //profileNameChange: 'profileNameChange'
+};
 
 // main logic
 userData
@@ -153,8 +164,9 @@ placePopupForm.addEventListener("submit", event => {
       renderCard(newCard, gallery);
       closePopup(placePopupElement);
     })
-    .catch(() => {
-      console.log("Запрос на создание карточки не удался");
+    .catch((err) => {
+      //console.error();
+      console.log("Запрос на создание карточки не удался" + err);
     })
     .finally(() => {
       setTextContent(placePopupUploadButton, "Создать");
@@ -206,27 +218,22 @@ avatarPopupElement.addEventListener("mousedown", evt => {
 
 
 
-const validationConfig = {
-  formSelector: '.popup',
-  formPopup: '.popup__form',
-  inputSelector: '.form__input',
-  submitButtonSelector: '.popup__button-save',
-  inactiveButtonClass: 'popup__button-save_disabled',
-  activeButtonClass: 'popup__button-save_active',
-  inputErrorClass: 'form__input_error',
-  errorClass: 'form__input-error-msg_visible',
-  //formButtonAvatar: 'formButtonAvatar',
-  //profileNameChange: 'profileNameChange'
-};
+
 /*
 enableValidation(userFormValidationConfig);
 enableValidation(placeFormValidationConfig);
 enableValidation(avatarFormValidationConfig);
 */
+
+const disableButton = (enable, buttonEnable) => {
+  buttonEnable.classList.add(enable.inactiveButtonClass);
+  buttonEnable.classList.remove(enable.activeButtonClass);
+}
+
 const avatarFormValidationConfig = document.querySelector('#popup_avatar_edit');
 const placeFormValidationConfig = document.querySelector('#popup_img_add');
 const userFormValidationConfig = document.querySelector('#popup_profile_edit');
-/*
+
 const userFormValidation = new FormValidator(validationConfig, userFormValidationConfig);
 userFormValidation.enableValidation();
 
@@ -234,8 +241,8 @@ const placeFormValidation = new FormValidator(validationConfig, placeFormValidat
 placeFormValidation.enableValidation();
 
 const avatarFormValidation = new FormValidator(validationConfig, avatarFormValidationConfig);
-avatarFormValidation.enableValidation();*/
-enableValidation(validationConfig); 
+avatarFormValidation.enableValidation();
+//enableValidation(validationConfig); 
 /*
 enableValidation(validationConfig, userFormValidationConfig);
 enableValidation(validationConfig, placeFormValidationConfig);
