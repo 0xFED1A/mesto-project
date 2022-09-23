@@ -6,9 +6,9 @@ export default class FormValidator {
         this._inputList = Array.from(this._formElement.querySelectorAll(this._validationConfig.inputSelector));
     }
     enableValidation = () => {
-        this._formElement.addEventListener('submit', (evt) => {
-            evt.preventDefault();
-        });
+        //this._formElement.addEventListener('submit', (evt) => {
+            //evt.preventDefault();
+        //});
         const fieldsetList = Array.from(this._formElement.querySelectorAll(this._validationConfig.formPopup));
         fieldsetList.forEach((fieldSet) => {
             this._setEventListeners(fieldSet);
@@ -59,7 +59,6 @@ _toggleButtonState = () => {
 
 _setEventListeners = () => {
     this._toggleButtonState();
-    //let validator = this;
     this._inputList.forEach((inputElement) => {
         inputElement.addEventListener('input', () => {
             this._checkInputValidity(inputElement); 
