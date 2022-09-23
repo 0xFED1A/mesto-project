@@ -29,11 +29,12 @@ _showInputError = (inputElement, errorMessage) => {
     errorElement.textContent = '';
 };
 _checkInputValidity = (inputElement) => {
+    /*
     if (inputElement.validity.patternMismatch) {
         inputElement.setCustomValidity(inputElement.dataset.errorMessage);
     } else {
         inputElement.setCustomValidity("");
-    }
+    }*/
     if (!inputElement.validity.valid) {
         this._showInputError( inputElement, inputElement.validationMessage);
     } else {
