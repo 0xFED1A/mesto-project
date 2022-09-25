@@ -1,4 +1,64 @@
 "use strict";
+import "./pages/index.css";
+import { connectionConfig, galleryContainer } from "./components/utils.js";
+import Card from "./components/card.js";
+import Api from "./components/api.js";
+import Section from "./components/Section.js";
+
+
+const api = new Api(connectionConfig);                // связь с сервером
+const cardsData = api.getCardsFromServer();          // получаем данные о карточках с сервера в массиве
+
+cardsData
+    // массив с данными о карточка [{name: "cardName", image: "cardUrl", _id: "123123", owner: {}}, {}, {}]
+  .then(response => {
+    // пустой массив для элеметов класса Card
+    const cardsArray = [];
+    // переберам объекты, внутри массива с данными о карточках cardsDataItem = {}
+    response.forEach(cardsDataItem => {
+      // конфиг (объект) необходимо передать как аргумент конструктора класса Card
+      const cardConfig = {
+        // селектор шаблона, по которму выбирается шаблон карточки
+        cardTemplate: "#gallery_template",
+        // метод, который передаётсяя карточке, который будет открывать карточку
+        openPopup: () => {console.log("popup opened")},
+        // метод, который передаётсяя карточке, который будет отправлять лайк о карточке
+        sendLikeInfoToServer: () => {console.log("like has been sent")},
+        // один из объектов массива, с данными о карточках, которые отдал сервер
+        data: cardsDataItem,
+        // айди пользователя, который нужно будет спросить у сервера, методом getUserInfo
+        userId: "user id",
+        // метод, который передаётсяя карточке, который будет удалять карточку с сервера
+        deleteCardFromServer: () => {console.log("card deleted")}
+      }
+      const card = new Card(cardConfig);
+      cardsArray.push(card);
+    });
+    section.renderCard(cardsArray);
+  })
+  .catch(err => console.log(err));
+
+
+  // экземпляр класса Section, он занимается добавлением элемтов класса Card в контейнер, и отрисовкой
+  const section = new Section(
+    // первый аргумент для конструктора Section, это конфиг (объект), с одним полем rendere. В этом поле,
+    // хрнатися метод отображения карточки
+    {
+      renderer: item => {
+        // Должна из объекта класса Card получить объект класса HTMLElement
+        return item.generateCard();
+      }
+    },
+    // второй аргумент для конструктора Section, это строка, которая содержит селектор, испольуем для выбирания
+    // контейнера, в котором будут содержаться готовые элементы
+    ".gallery__items"
+);
+
+
+
+
+
+/*"use strict";
 import dd from '../test1.js';
 // imports
 import './pages/index.css';
@@ -20,37 +80,10 @@ import {
 } from './components/utils';
 
 import {
-  profilePopupElement,
-  profilePopupOpen,
-  profilePopupClose,
-  profilePopupForm,
-  profilePopupUserName,
-  profilePopupUserInfo,
-  profilePopupSaveButton,
-
-  placePopupElement,
-  placePopupOpen,
-  placePopupClose,
-  placePopupForm,
-  placePopupPlaceName,
-  placePopupPlaceLink,
-  placePopupUploadButton,
-
-  previewPopupElement,
-  previewPopupClose,
-
-  avatarPopupElement,
-  avatarPopupOpen,
-  avatarPopupClose,
-  avatarPopupForm,
-  avatarPopupImageLink,
-  avatarPopupUploadButton,
-
-  initializePopupInput,
-  openPopup,
-  closePopup,
-  savePopupInput,
-  closePopupOnClick,
+  profilePopup,
+  placePopup,
+  avatarPopup,
+  previewPopup
 } from './components/modal';
 
 import {
@@ -189,3 +222,4 @@ Promise.all([
 enableValidation(userFormValidationConfig);
 enableValidation(placeFormValidationConfig);
 enableValidation(avatarFormValidationConfig);
+*/

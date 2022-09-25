@@ -1,5 +1,5 @@
 export default class Card {
-  constructor(cardTemplate,openPopup,sendLikeInfoToServer,data,userId,deleteCardFromServer) 
+    constructor({cardTemplate,openPopup,sendLikeInfoToServer,data,userId,deleteCardFromServer}) 
     {
     this._data = data;
     this._name = data.name;
@@ -30,11 +30,18 @@ export default class Card {
       .content.querySelector(".gallery__item").cloneNode(true);
       return newCard;
     }
-    
+   
+    // вернёт готовую HTML разметку, т.е. объек класса HTML element, который уже можно
+    // отобразить на странице
     generateCard() {
       this._setEventListeners();
-      this._newCardImage.src = this._name;
-      this._newCardImage.alt = this._link;
+      // тут для элемента img лежащего внутри li, добавляется реальный атрибут src
+      this._newCardImage.src = this._link;
+      // тут для элемента img лежащего внутри li, добавляется реальный атрибут alt
+      this._newCardImage.alt = this._name;
+      // тут для элемента h2 лежащего внутри li, устанавливается реальный textContnetn
+      this._newCardCaption.textContent = this._name;
+      // тут в счётчик лайков записывается длинна массива likes
       this._newCardLikesCounter.textContent = this._data.likes.length;
       this._setIsLiked();
       return this._element;

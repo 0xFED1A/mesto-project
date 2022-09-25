@@ -3,8 +3,11 @@ export default class Section {
       this._renderer = renderer;
       this._container = document.querySelector(selector);
     }
-  
+    
+    // items - массив элементов класса Card
     renderCard(items) {
+      // массив элементов класса Card, разворачивается задом наперёд, и для каждого из этих элементов
+      // вызывает метод addItem
       items.reverse().forEach((item) => {
         this.addItem(item);
       });

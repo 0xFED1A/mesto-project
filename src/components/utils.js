@@ -1,3 +1,18 @@
+// connection configs
+const connectionConfig = {
+  baseUrl: "https://nomoreparties.co/v1/plus-cohort-14/",
+  headers: {
+    authorization: "97490d78-0aeb-4bf4-9e55-1aeead76a69d",
+    "Content-Type": "application/json"
+  }
+};
+
+const page = document.querySelector(".page");
+const galleryContainer = page.querySelector(".gallery__items");
+
+export { connectionConfig, galleryContainer };
+
+/*
 // utils
 
 import { getUserInfoFromServer, getCardsFromServer } from "./api";
@@ -34,7 +49,6 @@ const cardsData = getCardsFromServer();
 /** function sets text content of passed elemend with passed text
  * @param {object} element - object to set text
  * @param {string} text - text to set
- */
 function setTextContent(element, text) {
   element.textContent = text;
 }
@@ -58,3 +72,4 @@ export {
 
   setTextContent
 };
+*/
