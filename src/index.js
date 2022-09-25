@@ -1,5 +1,5 @@
 "use strict";
-
+import dd from '../test1.js';
 // imports
 import './pages/index.css';
 import {
@@ -67,6 +67,8 @@ import {
   sendAvatarToServer
 } from './components/api';
 
+
+console.log('gfdgsfdg');
 // profile popup listeners
 profilePopupOpen.addEventListener("click", () => {
   initializePopupInput(profilePopupUserName, userName.textContent);

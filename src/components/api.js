@@ -1,4 +1,4 @@
-import { config } from "./utils.js";
+
 
 export default class Api {
   constructor({baseUrl, headers}) {

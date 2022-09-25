@@ -18,7 +18,8 @@ const config = {
     "Content-Type": "application/json"
   }
 };
-console.log(config.headers);
+
+
 
 // connection paths
 const userPath = "users/me";
