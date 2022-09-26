@@ -24,15 +24,9 @@ class Popup {
       this.closePopup();
     }
   }
-  const closeByOverlayClick = (evt) => {
-    if (evt.currentTarget === evt.target) {
-        closePopup(evt.currentTarget);
-    };
-}
-  closePopupOnClick()
 }
 
-class PopupWithImage extends Popup {
+export class PopupWithImage extends Popup {
   constructor({
     elementSelector,
     closeButtonSelector,
@@ -45,7 +39,7 @@ class PopupWithImage extends Popup {
   }
 }
 
-class PopupWithForm extends Popup {
+export class PopupWithForm extends Popup {
   constructor({
     elementSelector, 
     closeButtonSelector,
@@ -67,6 +61,6 @@ class PopupWithForm extends Popup {
   initializePopupInputs(config) {
     this._formInputs.forEach(input => {
       this._initializePopupInput(input, config[input.name]);
-    })
+    });
   }
 }

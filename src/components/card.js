@@ -1,3 +1,16 @@
+//@ts-check
+
+/**
+ * Модуль содержащий класс Card
+ *
+ * @module card
+ * @version 0.1
+ * @author Дмитрий Суртаев
+ */
+
+/**
+ * Класс Card
+ */
 export default class Card {
     constructor({cardTemplate,openPopup,sendLikeInfoToServer,data,userId,deleteCardFromServer}) 
     {

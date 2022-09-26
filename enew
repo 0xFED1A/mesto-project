@@ -1,0 +1,74 @@
+//@ts-check
+
+/**
+ * Модуль содержащий класс Card
+ *
+ * @module card
+ * @version 0.1
+ * @author Дмитрий Суртаев
+ */
+
+/**
+ * Класс Card содержит метод генерации карточки места
+ */
+class  Card {
+  /**
+   *  Конструктор класса Card. В качестве аргументов принимает:
+   *   serverConfig - объект данных о карточке, полученный от сервера
+   *   callBackConfig - объект с коллбэками для eventListener'ов карточки
+   *   selectorConfig - объект с селекторами
+   *
+   * @constructor
+   * @param {{name: string, link: string, _id: string, owner: Object, likes: Array}}
+   *   serverConfig - данные от сервера
+   * @param {{openFunct: Function, sendFunct: Function, removeFunct: Function}}
+   *   callBackConfig - конфиг с коллбэками
+   * @param {{imageSelect: string, captionSelect: string, likeSelect: string,
+   *   counterSelect: string, removeSelect: string, templateSelect: string}}
+   *   selectorConfig - конфиг с селекторами
+   */
+  constructor(
+    {name, link, _id, owner, likes},
+    {openFunct, sendFunct, removeFunct},
+    {imageSelect, captionSelect, likeSelect, counterSelect, removeSelect, templateSelect}
+) {
+    this._cardName = name;
+    this._cardLink = link;
+    this._cardId = _id;
+    
+    this._isCardBelongToUser = false;
+
+    this._cardHTMLElement = this._getTemplate(templateSelect);
+  }
+
+  _getTemplate(template) {
+    return document.querySelector(template).cloneNode(true);
+  }
+
+  _setEventListeners() {
+
+  }
+
+  _setDeleteButton() {
+    const deleteButton = this._HTMLElement.querySelector(deleteButtonSelector)
+    if (this._isCardBelongToUser) {
+      
+    }
+  }
+
+  _setLikeCounter() {
+
+  }
+
+  _setIsLiked() {
+
+  }
+
+  _toggleLike() {
+
+  }
+
+  generateHTMLfromCard() {
+
+  }
+}
