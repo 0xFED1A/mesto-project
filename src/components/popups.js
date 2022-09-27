@@ -1,29 +1,27 @@
 class Popup {
-  constructor(elementSelector, closeButtonSelector) {
+  constructor(elementSelector) {
     // cannot instantiate abstract popup
-    if (this.constructor.name == "Popup") {
-      return;
-    }
     this._element = document.querySelector(elementSelector);
-    this._closeButton = this._element.querySelector(closeButtonSelector);
-    this._cssClassOpened = cssClassOpened;
+    this._closeButton = this._element.querySelector(".popup__button-close");
+    this._escapeClose = this._closePopupOnEscape.bind(this);
   }
 
   openPopup() {
-    this._element.classList.add(".popup_opened");
-    document.addEventListener("keydown", this.closeOnEscape);
+    this._element.classList.add("popup_opened");
+    document.addEventListener("keydown", this._escapeClose);
   }
 
   closePopup() {
-    this._element.classList.remove(".popup_opened");
-    document.removeEventListener("keydown", this.closeOnEscape);
+    this._element.classList.remove("popup_opened");
+    document.removeEventListener("keydown", this._escapeClose);
   }
 
-  closePopupOnEscape(evt) {
-    if (evt.key && evt.key === "Escape") {
+  _closePopupOnEscape(evt) {
+    if (evt.key  === "Escape") {
       this.closePopup();
     }
   }
+<<<<<<< Updated upstream
 }
 
 export class PopupWithImage extends Popup {
@@ -36,6 +34,32 @@ export class PopupWithImage extends Popup {
     super(elementSelector, closeButtonSelector);
     this._image = this._element.querySelector(imageSelector);
     this._caption = this._element.querySelector(captionSelector);
+=======
+  
+  setEventListeners() {
+    this._closeButton.addEventListener('click', () => {
+      this.closePopup()
+    });
+    this._element.addEventListener('mousedown', (event) => {
+      if (event.target.classList.contains('popup')) {
+        this.closePopup()
+      }
+    });
+  }
+}
+export default class PopupWithImage extends Popup {
+  constructor(elementSelector) 
+  {
+    super(elementSelector);
+    this._image = this._element.querySelector(".popup__image");
+    this._caption = this._element.querySelector(".popup__item-info");
+  }
+  openPopup(caption,link) {
+    this._image.src = link;
+    this._caption.textContent = caption;
+    this._image.alt = caption;
+    super.openPopup();
+>>>>>>> Stashed changes
   }
 }
 

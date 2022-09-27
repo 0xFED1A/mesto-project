@@ -1,5 +1,6 @@
 "use strict";
 import "./pages/index.css";
+<<<<<<< Updated upstream
 
 import { 
   connectionConfig,
@@ -43,10 +44,24 @@ Promise.all([cardsData, userData])
 
  
  
+=======
+import { connectionConfig, galleryContainer } from "./components/utils.js";
+import Card from "./components/card.js";
+import Api from "./components/api.js";
+import Section from "./components/Section.js";
+import PopupWithImage from "./components/popups.js";
+import UserInfo from "./components/UserInfo";
+
+
+const api = new Api(connectionConfig);
+let userId;
+// Создание карточки 
+>>>>>>> Stashed changes
 const createCard = (data) => {
   const card = new Card({
     data: data,
     cardTemplate: '#gallery_template',
+<<<<<<< Updated upstream
   });
   const cardElement = card.generateCard();
   return cardElement;
@@ -95,3 +110,50 @@ console.log(cardsData);
   
 const dd = api.sendCardToSever[name];
   console.log(dd);*/
+=======
+    openPopupImage : (caption,link) => {viewPopupImage.openPopup(caption,link);},
+    handleDeleteCardClick : (cardId) => {
+      api.deleteCard(cardId)
+        .then (() => {
+          card.deleteCard(cardId);
+        })
+        .catch((err) => {
+          console.log(`Ошибка: ${err}`);
+      });
+    }
+  });
+  const cardElement = card.generateCard();
+  return cardElement;
+  
+};
+const cardsList = new Section({
+  renderer: (card) => {
+    cardsList.addItem(createCard(card));
+  },
+}, '.gallery__items');
+
+
+/* Просмотр изображения */
+const viewPopupImage = new PopupWithImage('.popup_type_img-preview');
+  viewPopupImage.setEventListeners();
+
+  /* экземпляр класса пользлователя */
+const userInfo = new UserInfo({
+  username: '.profile__user-name',
+  job: '.profile__user-description',
+  avatar: '.profile__image'
+});
+;
+
+Promise.all([api.getInitialCards(),api.getUserInfo()])
+  .then(([cards,userData]) => {
+    userInfo.setUserInfo(userData)
+    userId = userData._id;
+    cardsList.renderItems(cards.reverse());
+  })
+  .catch((err) => {
+    console.log(`Ошибка: ${err}`);
+});
+ console.log(userId);
+
+>>>>>>> Stashed changes
