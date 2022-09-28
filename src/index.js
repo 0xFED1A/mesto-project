@@ -116,6 +116,9 @@ document.querySelector('.profile__button-add').addEventListener('click', () => {
 document.querySelector('.profile__avatar').addEventListener('click', () => {
     popupAvatarEdit.openPopup();
 })
+document.querySelector('.profile__button-edit').addEventListener('click', () => {
+    popupProfileEdit.openPopup();
+})
 const addCardPopup = new PopupWithForm({
     elementSelector: '#popup_img_add',
     submitForm: (card) => {
@@ -155,5 +158,29 @@ const popupAvatarEdit = new PopupWithForm({
         })  
     }
 });
+
+const popupProfileEdit = new PopupWithForm({
+    elementSelector: '#popup_profile_edit',
+    submitForm: (data) => {
+        //renderLoading(true,);//сохраниение
+       
+        api.updateUserData(data)
+        .then((data) => {
+            userInfo.setUserInfo({
+                name: data.name, 
+                about: data.about
+            });
+            //disableButton(validationConfig, );
+            popupProfileEdit.closePopup();
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+        .finally(() => {
+            //renderLoading(false,);
+        })  
+    }
+});
+
 //////-------------
 
