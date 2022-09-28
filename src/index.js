@@ -6,7 +6,8 @@ import {
 import Card from "./components/card.js";
 import Api from "./components/api.js";
 import Section from "./components/Section.js";
-import PopupWithImage from "./components/popups.js";
+import {PopupWithImage, PopupWithForm}  from "./components/popups.js";
+
 import UserInfo from "./components/UserInfo";
 
 
@@ -20,6 +21,7 @@ const userInfo = new UserInfo({
 });
 // Создание карточки 
 const createCard = (data) => {
+   
     const card = new Card({
         data: data,
         cardTemplate: '#gallery_template',
@@ -70,6 +72,30 @@ const viewPopupImage = new PopupWithImage('.popup_type_img-preview');
 viewPopupImage.setEventListeners();
 
 
+///////-----------
+document.querySelector('.profile__button-add').addEventListener('click', () => {
+    addCardPopup.openPopup();
+})
+
+const addCardPopup = new PopupWithForm({
+    elementSelector: '#popup_img_add',
+    submitForm: (card) => {
+        //сохраниение
+        api.addCard(card)
+        .then((res) => {
+            const cardElement = createCard(res);
+            cardsList.addItem(cardElement);
+            addCardPopup.closePopup();
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+        .finally(() => {
+            //сохраниение
+        })  
+    }
+});
+//////-------------
 
 Promise.all([api.getInitialCards(), api.getUserInfo()])
     .then(([cards, userData]) => {
