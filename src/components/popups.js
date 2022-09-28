@@ -21,21 +21,6 @@ class Popup {
       this.closePopup();
     }
   }
-<<<<<<< Updated upstream
-}
-
-export class PopupWithImage extends Popup {
-  constructor({
-    elementSelector,
-    closeButtonSelector,
-    imageSelector,
-    captionSelector
-  }) {
-    super(elementSelector, closeButtonSelector);
-    this._image = this._element.querySelector(imageSelector);
-    this._caption = this._element.querySelector(captionSelector);
-=======
-  
   setEventListeners() {
     this._closeButton.addEventListener('click', () => {
       this.closePopup()
@@ -59,7 +44,6 @@ export default class PopupWithImage extends Popup {
     this._caption.textContent = caption;
     this._image.alt = caption;
     super.openPopup();
->>>>>>> Stashed changes
   }
 }
 
@@ -69,7 +53,7 @@ export class PopupWithForm extends Popup {
     closeButtonSelector,
     openButtonSelector,
     formSelector, 
-    formInputSelector,             // may wary
+    formInputSelector,             
   }) {
     super(elementSelector, closeButtonSelector);
     this._openButton = this._element.querySelector(openButtonSelector);
