@@ -102,7 +102,8 @@ const validationConfig = {
   const avatarButton = popupAvatar.querySelector('.popup__button-save');
   const popupProfile = document.querySelector('#popup_profile_edit');
   const profileButton = popupProfile.querySelector('.popup__button-save');
-
+  const formInputName = document.querySelector('.form__input_user-name');
+  const formInputDescription = document.querySelector('.form__input_user-description');
 function renderLoading(isLoading, saveButton) {
     if (isLoading) {
         saveButton.textContent = 'Сохранение...';
@@ -122,6 +123,9 @@ document.querySelector('.profile__avatar').addEventListener('click', () => {
 })
 document.querySelector('.profile__button-edit').addEventListener('click', () => {
     popupProfileEdit.openPopup();
+    const user = userInfo.getUserInfo();
+    formInputName.value = user.username;
+    formInputDescription.value = user.job;
 })
 const addCardPopup = new PopupWithForm({
     elementSelector: '#popup_img_add',
@@ -169,8 +173,8 @@ const popupProfileEdit = new PopupWithForm({
     elementSelector: '#popup_profile_edit',
     submitForm: (data) => {
         renderLoading(true,profileButton);//сохраниение
-       
         api.updateUserData(data)
+       
         .then((data) => {
             userInfo.setUserInfo({
                 avatar: data.avatar,
