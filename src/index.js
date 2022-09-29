@@ -145,7 +145,9 @@ const popupAvatarEdit = new PopupWithForm({
         api.editAvatar(data)
         .then((data) => {
             userInfo.setUserInfo({
-                avatar: data.avatar
+                avatar: data.avatar,
+                name: data.name, 
+                about: data.about
             });
             //disableButton(validationConfig, );
             popupAvatarEdit.closePopup();
@@ -167,6 +169,7 @@ const popupProfileEdit = new PopupWithForm({
         api.updateUserData(data)
         .then((data) => {
             userInfo.setUserInfo({
+                avatar: data.avatar,
                 name: data.name, 
                 about: data.about
             });
