@@ -7,7 +7,7 @@ import Card from "./components/card.js";
 import Api from "./components/api.js";
 import Section from "./components/Section.js";
 import {PopupWithImage, PopupWithForm}  from "./components/popups.js";
-
+import FormValidator from "./components/validate.js";
 import UserInfo from "./components/UserInfo";
 
 
@@ -189,5 +189,18 @@ const popupProfileEdit = new PopupWithForm({
     }
 });
 
+/// валидация
+const avatarFormValidationConfig = document.querySelector('#popup_avatar_edit');
+const placeFormValidationConfig = document.querySelector('#popup_img_add');
+const userFormValidationConfig = document.querySelector('#popup_profile_edit');
+
+const userFormValidation = new FormValidator(validationConfig, userFormValidationConfig);
+userFormValidation.enableValidation();
+
+const placeFormValidation = new FormValidator(validationConfig, placeFormValidationConfig);
+placeFormValidation.enableValidation();
+
+const avatarFormValidation = new FormValidator(validationConfig, avatarFormValidationConfig);
+avatarFormValidation.enableValidation();
 //////-------------
 
