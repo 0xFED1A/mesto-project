@@ -77,6 +77,7 @@ _setEventListeners() {
 }
 closePopup() {
   super.closePopup();
+  this._form.reset();
 }
 /*
   _initializePopupInput(popupInput, inputValue) {

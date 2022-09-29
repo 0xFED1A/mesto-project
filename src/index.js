@@ -96,8 +96,12 @@ const validationConfig = {
     //formButtonAvatar: 'formButtonAvatar',
     //profileNameChange: 'profileNameChange'
   };
-const popupImgAdd = document.querySelector('#popup_img_add');
-const newCardButton = popupImgAdd.querySelector('.popup__button-save');
+  const popupImgAdd = document.querySelector('#popup_img_add');
+  const newCardButton = popupImgAdd.querySelector('.popup__button-save');
+  const popupAvatar = document.querySelector('#popup_avatar_edit');
+  const avatarButton = popupAvatar.querySelector('.popup__button-save');
+  const popupProfile = document.querySelector('#popup_profile_edit');
+  const profileButton = popupProfile.querySelector('.popup__button-save');
 
 function renderLoading(isLoading, saveButton) {
     if (isLoading) {
@@ -141,7 +145,7 @@ const addCardPopup = new PopupWithForm({
 const popupAvatarEdit = new PopupWithForm({
     elementSelector: '#popup_avatar_edit',
     submitForm: (data) => {
-        //renderLoading(true,);//сохраниение
+        renderLoading(true,avatarButton);//сохраниение
         api.editAvatar(data)
         .then((data) => {
             userInfo.setUserInfo({
@@ -149,14 +153,14 @@ const popupAvatarEdit = new PopupWithForm({
                 name: data.name, 
                 about: data.about
             });
-            //disableButton(validationConfig, );
+            disableButton(validationConfig,avatarButton);
             popupAvatarEdit.closePopup();
         })
         .catch((err) => {
             console.log(err);
         })
         .finally(() => {
-            //renderLoading(false,);
+            renderLoading(false,avatarButton);
         })  
     }
 });
@@ -164,7 +168,7 @@ const popupAvatarEdit = new PopupWithForm({
 const popupProfileEdit = new PopupWithForm({
     elementSelector: '#popup_profile_edit',
     submitForm: (data) => {
-        //renderLoading(true,);//сохраниение
+        renderLoading(true,profileButton);//сохраниение
        
         api.updateUserData(data)
         .then((data) => {
@@ -173,14 +177,14 @@ const popupProfileEdit = new PopupWithForm({
                 name: data.name, 
                 about: data.about
             });
-            //disableButton(validationConfig, );
+            disableButton(validationConfig, profileButton);
             popupProfileEdit.closePopup();
         })
         .catch((err) => {
             console.log(err);
         })
         .finally(() => {
-            //renderLoading(false,);
+            renderLoading(false,profileButton);
         })  
     }
 });
