@@ -1,19 +1,3 @@
-
-// @ts-check
-
-/**
- * Модуль содержащий общие константы и функции
- *
- * @module utils
- * @version 0.1
- * @author Оксана
- */
-
-// конфиги
-/**
- * Конфиг для соединения с сервером
- * @type {{baseUrl: string, headers: object}}
- */
 const connectionConfig = {
   baseUrl: "https://nomoreparties.co/v1/plus-cohort-14/",
   headers: {

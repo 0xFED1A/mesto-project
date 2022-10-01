@@ -1,33 +1,36 @@
 import "./pages/index.css";
 import {
     connectionConfig,
-    galleryContainer
 } from "./components/utils.js";
 import Card from "./components/card.js";
 import Api from "./components/api.js";
 import Section from "./components/Section.js";
-import {PopupWithImage, PopupWithForm}  from "./components/popups.js";
+import {
+  PopupWithImage,
+  PopupWithForm
+}  from "./components/modal.js";
 import FormValidator from "./components/validate.js";
 import UserInfo from "./components/UserInfo";
 
 
 const api = new Api(connectionConfig);
 let userId;
-/* Экземпляр класса пользлователя */
+
+// Экземпляр класса пользлователя
 const userInfo = new UserInfo({
     username: '.profile__user-name',
     job: '.profile__user-description',
     avatar: '.profile__image'
 });
+
 // Создание карточки 
 const createCard = (data) => {
-   
     const card = new Card({
         data: data,
         cardTemplate: '#gallery_template',
         userId: userId,
         openPopupImage: (caption, link) => {
-            viewPopupImage.openPopup(caption, link)
+            viewPopupImage.openPopup(caption, link);
         },
         handleDeleteCardClick: (cardId) => {
             api.deleteCard(cardId)
@@ -126,7 +129,7 @@ document.querySelector('.profile__button-edit').addEventListener('click', () => 
     const user = userInfo.getUserInfo();
     formInputName.value = user.username;
     formInputDescription.value = user.job;
-})
+});
 const addCardPopup = new PopupWithForm({
     elementSelector: '#popup_img_add',
     submitForm: (card) => {
@@ -193,7 +196,7 @@ const popupProfileEdit = new PopupWithForm({
     }
 });
 
-/// валидация
+// валидация
 const avatarFormValidationConfig = document.querySelector('#popup_avatar_edit');
 const placeFormValidationConfig = document.querySelector('#popup_img_add');
 const userFormValidationConfig = document.querySelector('#popup_profile_edit');
@@ -206,5 +209,3 @@ placeFormValidation.enableValidation();
 
 const avatarFormValidation = new FormValidator(validationConfig, avatarFormValidationConfig);
 avatarFormValidation.enableValidation();
-//////-------------
-
