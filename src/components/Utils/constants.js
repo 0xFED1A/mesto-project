@@ -22,7 +22,19 @@ const validationConfig = {
     errorClass: 'form__input-error-msg_visible',
     //formButtonAvatar: 'formButtonAvatar',
     //profileNameChange: 'profileNameChange'
-  };
+};
 
-export {popupImgAdd,newCardButton,popupAvatar,avatarButton,popupProfile,profileButton,
-    formInputName,formInputDescription,avatarFormValidationConfig,placeFormValidationConfig,userFormValidationConfig,validationConfig};
+export {
+    popupImgAdd,
+    newCardButton,
+    popupAvatar,
+    avatarButton,
+    popupProfile,
+    profileButton,
+    formInputName,
+    formInputDescription,
+    avatarFormValidationConfig,
+    placeFormValidationConfig,
+    userFormValidationConfig,
+    validationConfig
+};

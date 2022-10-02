@@ -1,7 +1,7 @@
 import "./pages/index.css";
 import {
     connectionConfig,
-} from "./components/utils.js";
+} from "./components/Utils/utils.js";
 import Card from "./components/card.js";
 import Api from "./components/api.js";
 import Section from "./components/Section.js";
@@ -9,7 +9,17 @@ import PopupWithForm from "./components/PopupWithForm.js";
 import PopupWithImage from "./components/PopupWithImage.js";
 import FormValidator from "./components/FormValidator.js";
 import UserInfo from "./components/UserInfo";
-import {newCardButton,avatarButton,profileButton,formInputName,formInputDescription,avatarFormValidationConfig,placeFormValidationConfig,userFormValidationConfig,validationConfig} from "./components/Utils/constants.js";
+import {
+    newCardButton,
+    avatarButton,
+    profileButton,
+    formInputName,
+    formInputDescription,
+    avatarFormValidationConfig,
+    placeFormValidationConfig,
+    userFormValidationConfig,
+    validationConfig
+} from "./components/Utils/constants.js";
 
 
 
@@ -93,7 +103,7 @@ function renderLoading(isLoading, saveButton) {
     } else {
         saveButton.textContent = 'Сохранить';
     }
-  }
+}
 
 document.querySelector('.profile__button-add').addEventListener('click', () => {
     placeFormValidation.toggleButtonState();
@@ -114,63 +124,63 @@ document.querySelector('.profile__button-edit').addEventListener('click', () => 
 const addCardPopup = new PopupWithForm({
     elementSelector: '#popup_img_add',
     submitForm: (card) => {
-        renderLoading(true,newCardButton);//сохраниение
+        renderLoading(true, newCardButton); //сохраниение
         api.addCard(card)
-        .then((res) => {
-            const cardElement = createCard(res);
-            cardsList.addItem(cardElement);
-            addCardPopup.closePopup();
-        })
-        .catch((err) => {
-            console.log(err);
-        })
-        .finally(() => {
-            renderLoading(false,newCardButton);
-        })  
+            .then((res) => {
+                const cardElement = createCard(res);
+                cardsList.addItem(cardElement);
+                addCardPopup.closePopup();
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+            .finally(() => {
+                renderLoading(false, newCardButton);
+            })
     }
 });
 const popupAvatarEdit = new PopupWithForm({
     elementSelector: '#popup_avatar_edit',
     submitForm: (data) => {
-        renderLoading(true,avatarButton);//сохраниение
+        renderLoading(true, avatarButton); //сохраниение
         api.editAvatar(data)
-        .then((data) => {
-            userInfo.setUserInfo({
-                avatar: data.avatar,
-                name: data.name, 
-                about: data.about
-            });
-            popupAvatarEdit.closePopup();
-        })
-        .catch((err) => {
-            console.log(err);
-        })
-        .finally(() => {
-            renderLoading(false,avatarButton);
-        })  
+            .then((data) => {
+                userInfo.setUserInfo({
+                    avatar: data.avatar,
+                    name: data.name,
+                    about: data.about
+                });
+                popupAvatarEdit.closePopup();
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+            .finally(() => {
+                renderLoading(false, avatarButton);
+            })
     }
 });
 
 const popupProfileEdit = new PopupWithForm({
     elementSelector: '#popup_profile_edit',
     submitForm: (data) => {
-        renderLoading(true,profileButton);//сохраниение
+        renderLoading(true, profileButton); //сохраниение
         api.updateUserData(data)
-       
-        .then((data) => {
-            userInfo.setUserInfo({
-                avatar: data.avatar,
-                name: data.name, 
-                about: data.about
-            });
-            popupProfileEdit.closePopup();
-        })
-        .catch((err) => {
-            console.log(err);
-        })
-        .finally(() => {
-            renderLoading(false,profileButton);
-        })  
+
+            .then((data) => {
+                userInfo.setUserInfo({
+                    avatar: data.avatar,
+                    name: data.name,
+                    about: data.about
+                });
+                popupProfileEdit.closePopup();
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+            .finally(() => {
+                renderLoading(false, profileButton);
+            })
     }
 });
 
