@@ -94,17 +94,18 @@ function renderLoading(isLoading, saveButton) {
         saveButton.textContent = 'Сохранить';
     }
   }
-const disableButton = (enable, buttonEnable) => {
-    buttonEnable.classList.add(enable.inactiveButtonClass);
-    buttonEnable.classList.remove(enable.activeButtonClass);
-}
+
 document.querySelector('.profile__button-add').addEventListener('click', () => {
+    placeFormValidation.toggleButtonState();
     addCardPopup.openPopup();
+
 })
 document.querySelector('.profile__avatar').addEventListener('click', () => {
+    avatarFormValidation.toggleButtonState();
     popupAvatarEdit.openPopup();
 })
 document.querySelector('.profile__button-edit').addEventListener('click', () => {
+    userFormValidation.toggleButtonState();
     popupProfileEdit.openPopup();
     const user = userInfo.getUserInfo();
     formInputName.value = user.username;
@@ -118,7 +119,6 @@ const addCardPopup = new PopupWithForm({
         .then((res) => {
             const cardElement = createCard(res);
             cardsList.addItem(cardElement);
-            disableButton(validationConfig, newCardButton);
             addCardPopup.closePopup();
         })
         .catch((err) => {
@@ -140,7 +140,6 @@ const popupAvatarEdit = new PopupWithForm({
                 name: data.name, 
                 about: data.about
             });
-            disableButton(validationConfig,avatarButton);
             popupAvatarEdit.closePopup();
         })
         .catch((err) => {
@@ -164,7 +163,6 @@ const popupProfileEdit = new PopupWithForm({
                 name: data.name, 
                 about: data.about
             });
-            disableButton(validationConfig, profileButton);
             popupProfileEdit.closePopup();
         })
         .catch((err) => {
