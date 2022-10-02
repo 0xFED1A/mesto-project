@@ -1,9 +1,9 @@
 import "./pages/index.css";
 import {
     connectionConfig,
-} from "./components/Utils/utils.js";
-import Card from "./components/card.js";
-import Api from "./components/api.js";
+} from "./components/utils/utils.js";
+import Card from "./components/Card.js";
+import Api from "./components/Api.js";
 import Section from "./components/Section.js";
 import PopupWithForm from "./components/PopupWithForm.js";
 import PopupWithImage from "./components/PopupWithImage.js";
@@ -19,7 +19,7 @@ import {
     placeFormValidationConfig,
     userFormValidationConfig,
     validationConfig
-} from "./components/Utils/constants.js";
+} from "./components/utils/constants.js";
 
 
 
